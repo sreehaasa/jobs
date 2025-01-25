@@ -1,0 +1,50 @@
+.header {
+      /*
+    padding: 0px;
+    text-align: center;
+    background: #0d5077;
+    color: #0B1354;
+    height: auto;
+    width: 100%;
+    background: right no-repeat;
+  
+    box-shadow: 0 100px 80px rgba(0, 0, 0, .03), 0 40px 30px rgba(0, 0, 0, .0203), 0 22px 18px rgba(0, 0, 0, .03), 0 12px 10px rgba(0, 0, 0, .01), 0 7px 5px rgba(0, 0, 0, .01), 0 3px 2px rgba(0, 0, 0, .01);
+    */
+    background-color: #6B7489;
+    color: #81767a;
+    margin: 20px 20px 50px 0;
+    padding: 20px;
+    height: 250px;
+    background-position: 0%;
+    width: 100%
+
+    
+}
+footer {
+    text-align: center;
+    padding: 3px;
+    background-color: #6B7489;
+    color: white;
+    margin-top: 40px;
+}
+
+footer .input-container {
+    align-items: center;
+    justify-content: center;
+    margin-left: -40px;
+}
+
+footer .input-field {
+    width: 30%;
+}
+
+footer>address {
+    display: block;
+    margin-top: 20px;
+}
+
+footer>address a:link,
+footer>address a:visited {
+    text-decoration: underline;
+    color: #fff;
+}
