@@ -23,10 +23,7 @@ body {
   border-radius: 4px;
 }
 
-.header a.logo {
-  font-size: 25px;
-  font-weight: bold;
-}
+
 
 .header a:hover {
   background-color: #ddd;
@@ -350,7 +347,18 @@ h2 i {
   border-radius: 10px;
   font-size: 18px;
 }
-
+.btnSmall {
+  text-decoration: none;
+  color: #81767a;
+  padding: 0.1rem;
+  border: 1px solid #656568;
+  margin-top: 15px;
+  display: inline-block;
+  width: auto;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 18px;
+}
 * {
   box-sizing: border-box;
 }
@@ -402,8 +410,21 @@ h2 i {
   width: 100%;
   opacity: 1;
 }
+.btnSmall {
+  background-color: #656568;
+  color: white;
+  padding: .1px 2px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 1;
+}
+
 
 .btn:hover {
+  opacity: .9;
+}
+.btnSmall:hover {
   opacity: .9;
 }
 
