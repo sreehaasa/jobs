@@ -101,6 +101,7 @@ main p
     text-decoration: underline; /* underlines the text on hover */
 }
 
+<<<<<<< HEAD
 
 /* this is all for the job page */
 #searchbar
@@ -144,3 +145,5 @@ main p
     from {opacity:0;}
     tp {opactiy:1;}
 }
+=======
+>>>>>>> 8c92862e247c6432c642c9bd0152c4b3b7dc1a0d
