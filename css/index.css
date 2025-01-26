@@ -32,6 +32,8 @@ body, html
 {
     background-color: #00509e;
     border-radius: 5px; /* round corners */
+    transform: scale(1.02);
+    transition: all 0.3s ease;
 }
 
 /* Logo */
@@ -101,3 +103,46 @@ main p
     text-decoration: underline; /* underlines the text on hover */
 }
 
+
+/* this is all for the job page */
+#searchbar
+{
+    display: block;
+    margin: 20px auto;
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.job-card
+{
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    width: 80%;
+    max-width: 800px;
+    box-sizing: border-box;
+    animation: fadeIn 0.5s ease-in; /*animation??*/
+}
+
+.job-card
+{
+    background-color: #fff9c4;
+}
+
+
+/*Hover effects */
+.job-card:hover
+{
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
+/* animation trial*/
+@keyframes fadeIn
+{
+    from {opacity:0;}
+    tp {opactiy:1;}
+}
