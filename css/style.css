@@ -41,6 +41,81 @@ body {
   float: right;
 }
 
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+.subhead {
+ font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.section {
+  text-align: right;
+  background-color: #e1e1e1b1;
+  width: 100%;
+  left: 0;
+  float: left;
+}
+
+tr:hover {background-color: #D6EEEE;}
+
+
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 5px;
+
+}
+
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: left;
+  background-color: #848282;
+  color: white;
+  margin: auto;
+}
+
+.fa {font-size:50px;}
+
 @media screen and (max-width: 500px) {
   .header a {
     float: none;
@@ -51,4 +126,61 @@ body {
   .header-right {
     float: none;
   }
+}
+.card5 {
+  box-shadow: 0 100px 80px rgba(0, 0, 0, .03), 0 40px 30px rgba(0, 0, 0, .0203), 0 22px 18px rgba(0, 0, 0, .03), 0 12px 10px rgba(0, 0, 0, .01), 0 7px 5px rgba(0, 0, 0, .01), 0 3px 2px rgba(0, 0, 0, .01);
+
+  background-color: #f2f2f2;
+  color: #81767a;
+  margin: 20px 20px 50px 0;
+  padding: 20px;
+  min-height: 650px;
+}
+
+.card5 {
+  box-shadow: 0 100px 80px rgba(0, 0, 0, .03), 0 40px 30px rgba(0, 0, 0, .0203), 0 22px 18px rgba(0, 0, 0, .03), 0 12px 10px rgba(0, 0, 0, .01), 0 7px 5px rgba(0, 0, 0, .01), 0 3px 2px rgba(0, 0, 0, .01);
+
+  text-align: center;
+  margin: 0 10px 0 10px;
+  padding: 20px;
+  min-height: 250px;
+}
+
+.card5 {
+  min-height: auto;
+}
+
+
+table {
+font-family: arial, sans-serif;
+border-collapse: collapse;
+width: 100%;
+}
+        
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+       
+        
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #5f5f5f;
 }
