@@ -103,6 +103,15 @@ main p
 
 
 /* this is all for the job page */
+#searchbar
+{
+    display: block;
+    margin: 20px auto;
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
 .job-card
 {
     margin: 20px auto;

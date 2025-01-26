@@ -24,13 +24,38 @@
     </div>
 </div>
 
+<!-- search bar -->
 <input type="text" id="searchbar" placeholder="Search for key words...">
+
+<script>
+  document.getElementById('searchbar').addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+      let filter = event.target.value.toLowerCase();
+      let jobCards = document.getElementsByClassName('job-card');
+      
+      for (let i = 0; i < jobCards.length; i++) {
+        let jobCard = jobCards[i];
+        let textContent = jobCard.textContent || jobCard.innerText;
+        
+        if (textContent.toLowerCase().indexOf(filter) > -1) {
+          jobCard.style.display = "";
+        } else {
+          jobCard.style.display = "none";
+        }
+      }
+    }
+  });
+  </script>
 
 <div style="padding-left:20px">
 <div class="job-posting">
     <div class="job-card">
       <div class="card5">
         <h2> Datastage Developer </h2>
+        <p>
+          <b> Organization: </b>
+          <br> Forsyth County Schools <br>
+        </p>
         <p>
           <b> Pathway: </b>
           <br> Computer Science <br>
@@ -60,10 +85,14 @@
     </div>
     <div class="job-card">
       <div class="card5">
-        <h2> Software Enginner </h2>
+        <h2> Teacher's Assistant </h2>
+        <p>
+          <b> Organization: </b>
+          <br> IBM <br>
+        </p>
         <p>
           <b> Pathway: </b>
-          <br> Computer Science <br>
+          <br> Teaching as a Profession <br>
         </p>
         <p>
             <b> Type: </b>
@@ -71,11 +100,11 @@
           </p>
         <p>
           <b> Certifications: </b>
-          <br> A Bachelor's degree in Computer Science Engineering and 4 years of experience in IT, is what is required for this position. <br>
+          <br> ??? <br>
         </p>
         <p>
           <b> Main Responsibilities: </b>
-          <br> Utilizing software knowledge to design and develop applications and create code for further development is an important part of this position. Leading your team through processes like testing and developing is one main role that this position plays.
+          <br> Assist a teacher...
         </p>
         <p>
           <b>Required Skills:</b>
@@ -83,12 +112,13 @@
         </p>
          <p>
           <b>Salary:</b>
-          <br> job market so cooked rn
+          <br> $1000?idk
         </p>
             <button onclick="security()" id="btn" title="Apply">Apply</button>
       </div>
     </div>
 </div>
+
 </div>
 <div class="footer">
     <address>
