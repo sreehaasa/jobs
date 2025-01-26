@@ -1,3 +1,4 @@
+
 * {box-sizing: border-box;}
 
 body { 
@@ -41,14 +42,7 @@ body {
   float: right;
 }
 
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  color: white;
-  text-align: center;
-}
+
 
 .subhead {
  font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -69,7 +63,6 @@ tr:hover {background-color: #D6EEEE;}
 
 
 
-
 * {
   box-sizing: border-box;
 }
@@ -78,7 +71,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
+
+
+
 /* Float four columns side by side */
+
 .column {
   float: left;
   width: 25%;
@@ -105,7 +103,8 @@ body {
 }
 
 /* Style the counter cards */
-.card {
+
+.card1 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: left;
@@ -152,9 +151,13 @@ body {
 
 
 table {
+  box-shadow: 0 100px 80px rgba(0, 0, 0, .03), 0 40px 30px rgba(0, 0, 0, .0203), 0 22px 18px rgba(0, 0, 0, .03), 0 12px 10px rgba(0, 0, 0, .01), 0 7px 5px rgba(0, 0, 0, .01), 0 3px 2px rgba(0, 0, 0, .01);
 font-family: arial, sans-serif;
 border-collapse: collapse;
 width: 100%;
+min-height:auto;
+margin: 20px 20px 50px 0;
+padding:20px;
 }
         
 td, th {
@@ -182,5 +185,348 @@ td, th {
 }
 
 tr:nth-child(even) {
-  background-color: #5f5f5f;
+  background-color: #656565;
+}
+
+.adminBtn {
+  size: 50px;
+}
+
+.card4 {
+  height: 100px;
+  background-color:red;
+}
+.row {
+  display: flex;
+}
+
+.row {
+  display: block;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 10px;
+  }
+
+  .fa {
+      padding: 0;
+      font-size: 20px !important;
+      margin: 0;
+  }
+
+}
+*/
+/* test */
+/*
+
+/* Main Header section with background image */
+
+/* Horizonal navigation bar */
+
+h2 i {
+  color: #334fb4;
+}
+
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+
+.column3 {
+  flex: auto;
+}
+
+.single-column {
+  flex: 100%;
+  margin-top: 20px;
+}
+
+.column.img {
+  flex: auto;
+}
+
+.content-panel {
+  margin: 80px;
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+
+  .content-panel {
+      margin: 30px;
+  }
+
+  .row {
+      display: block;
+  }
+
+  .column {
+      flex: 100%;
+  }
+
+  
+
+  
+
+  .header {
+      background: none;
+  }
+
+  .fa {
+      font-size: 25px !important;
+  }
+}
+
+
+@media (min-width: 600px) {
+  .cards {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .cards {
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+
+
+
+.card {
+  background-color: #f2f2f2;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  color: #81767a;
+  padding: 1rem;
+  height: 50rem;
+}
+
+.cards {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+
+
+
+
+.card5 {
+  box-shadow: 0 100px 80px rgba(0, 0, 0, .03), 0 40px 30px rgba(0, 0, 0, .0203), 0 22px 18px rgba(0, 0, 0, .03), 0 12px 10px rgba(0, 0, 0, .01), 0 7px 5px rgba(0, 0, 0, .01), 0 3px 2px rgba(0, 0, 0, .01);
+
+  background-color: #f2f2f2;
+  color: #81767a;
+  margin: 20px 20px 50px 0;
+  padding: 20px;
+  border-top: solid 5px #656568;
+  min-height: 650px;
+}
+
+
+.btn {
+  text-decoration: none;
+  color: #81767a;
+  padding: 0.5rem;
+  border: 1px solid #656568;
+  margin-top: 20px;
+  display: inline-block;
+  width: auto;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Style the input container */
+.input-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.input-container i {
+  width: 80px;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+/* Style the form icons */
+.icon {
+  padding: 10px;
+  background: #656568;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* Style the input fields */
+.input-field {
+  width: 100%;
+  outline: 1px;
+  font-size: 18px;
+  height: 60px;
+  border: solid 1px #3f8fb7;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.input-field:focus {
+  border: 2px solid #334fb4;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: #656568;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 1;
+}
+
+.btn:hover {
+  opacity: .9;
+}
+
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #656568;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Float four columns side by side */
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 10px;
+  }
+
+  .fa {
+      padding: 0;
+      font-size: 20px !important;
+      margin: 0;
+  }
+
+}
+
+/* Style the counter cards */
+.card5 {
+  box-shadow: 0 100px 80px rgba(0, 0, 0, .03), 0 40px 30px rgba(0, 0, 0, .0203), 0 22px 18px rgba(0, 0, 0, .03), 0 12px 10px rgba(0, 0, 0, .01), 0 7px 5px rgba(0, 0, 0, .01), 0 3px 2px rgba(0, 0, 0, .01);
+
+  text-align: center;
+  background-color: #f2f2f2;
+  color: #3e3d3e;
+  margin: 0 10px 0 10px;
+  padding: 20px;
+  border-top: solid 5px #656568;
+  min-height: 250px;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px !important;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+
+  color: white;
+}
+
+.fa-linkedin {
+  
+  color: white;
+}
+
+.fa-instagram {
+
+  color: white;
+}
+
+
+footer .input-container {
+  align-items: center;
+  justify-content: center;
+  margin-left: -40px;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+  .fa {
+      font-size: 20px !important;
+  }
+
+  
+
+  .card5 {
+      min-height: auto;
+  }
+
+
 }
