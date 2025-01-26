@@ -47,7 +47,7 @@ body {
  font-family:Verdana, Geneva, Tahoma, sans-serif;
 
 }
-/*
+
 .section {
   text-align: right;
   background-color: #e1e1e1b1;
@@ -55,11 +55,15 @@ body {
   left: 0;
   float: left;
 }
-*/
+
+
 tr:hover {background-color: #05126929;}
 
 
-
+.content-panel {
+  margin: 80px;
+  display: block;
+}
 
 
 * {
@@ -86,6 +90,7 @@ body {
 .row {margin: 0 -5px;}
 
 /* Responsive columns */
+
 @media screen and (max-width: 600px) {
   .column {
     width: 100%;
@@ -189,16 +194,22 @@ tr:nth-child(even) {
   background-color:red;
 }
 /* Update the .row to use flexbox with column direction */
+
 .row {
   display: flex;
   flex-direction: column;  /* Stack items vertically */
+ 
   gap: 20px;               /* Add space between the rows */
-  margin-bottom: 20px;      /* Optionally, you can add margin between rows */
+ 
+  margin-bottom: 20px;      /* Optionally, you can add margin between rows */ 
+
 }
 
 /* Each .column can now take full width, no need for float or specific width */
+
 .column {
   width: 100%; /* Ensure each column takes full width */
+
   padding: 10px; /* Add some padding around each job card */
 }
 
@@ -223,7 +234,7 @@ tr:nth-child(even) {
   }
 
 }
-*/
+
 /* test */
 /*
 
