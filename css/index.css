@@ -103,7 +103,7 @@ main p
 
 
 /* this is all for the job page */
-.job-posting
+.job-card
 {
     margin: 20px auto;
     padding: 20px;
@@ -115,18 +115,14 @@ main p
     animation: fadeIn 0.5s ease-in; /*animation??*/
 }
 
-.job-posting:nth-child(odd)
+.job-card
 {
     background-color: #fff9c4;
 }
 
-.job-posting:nth-child(even)
-{
-    background-color: #fff9c4;
-}
 
 /*Hover effects */
-.job-posting:hover
+.job-card:hover
 {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transform: scale(1.02);
