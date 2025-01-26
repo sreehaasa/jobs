@@ -52,6 +52,7 @@ main
 {
     background-color: #f9f9f9;
     padding: 20px;
+    padding-bottom: 100px;
 }
 
 /* Main heading */
@@ -84,7 +85,6 @@ main p
     color: white;
     padding: 20px;
     text-align: center;
-    margin-top: 50px;
 }
 
 /* Footer Links */
@@ -99,4 +99,43 @@ main p
 .footer a:hover
 {
     text-decoration: underline; /* underlines the text on hover */
+}
+
+
+/* this is all for the job page */
+.job-posting
+{
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    width: 80%;
+    max-width: 800px;
+    box-sizing: border-box;
+    animation: fadeIn 0.5s ease-in; /*animation??*/
+}
+
+.job-posting:nth-child(odd)
+{
+    background-color: #fff9c4;
+}
+
+.job-posting:nth-child(even)
+{
+    background-color: #fff9c4;
+}
+
+/*Hover effects */
+.job-posting:hover
+{
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
+/* animation trial*/
+@keyframes fadeIn
+{
+    from {opacity:0;}
+    tp {opactiy:1;}
 }
