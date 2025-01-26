@@ -7,8 +7,14 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
+    <link rel="javascript" href="../../scripts/validations.js">
+  
+   
+  </head>
+    
+    </body>
+    </html>
+    
 <body>
    
 
@@ -35,35 +41,35 @@
         <div class="card5">
           <div class="card3">
             <div class="col d-flex justify-content-center">
-              <form action="/action_page.php">
+              <form name="signUp" action="/action_page.php" onsubmit="return validateForm()" method= "post">
                 <h2>Sign Up</h2>
                 <div class="input-container">
                   <i class="fa fa-user icon"></i>
-                  <input class="input-field" type="text" placeholder="First Name" name="fname">
+                  <input class="input-field" type="text" placeholder="First Name" name="fname" maxlength="20" >
                 </div>
                 <div class="input-container">
                   <i class="fa fa-envelope icon"></i>
-                  <input class="input-field" type="text" placeholder="Last Name" name="lname">
+                  <input class="input-field" type="text" placeholder="Last Name" name="lname" maxlength="20" required>
+                </div>
+                <div class="input-container">
+                  <i class="fa fa-id-badge icon"></i>
+                  <input class="input-field" type="text" placeholder="Student ID" name="StudentID" maxlength="10"required>
+                </div>
+                <div class="input-container">
+                  <i class="fa fa-envelope icon"></i>
+                  <input class="input-field" type="email" placeholder="Email" name="email" maxlength="50"required>
                 </div>
                 <div class="input-container">
                   <i class="fa fa-handshake-o icon"></i>
-                  <input class="input-field" type="text" placeholder="Student ID" name="StudentID">
-                </div>
-                <div class="input-container">
-                  <i class="fa fa-envelope icon"></i>
-                  <input class="input-field" type="text" placeholder="Email" name="email">
-                </div>
-                <div class="input-container">
-                  <i class="fa fa-phone icon"></i>
-                  <input class="input-field" type="text" placeholder="Password" name="Password">
+                  <input class="input-field" type="text" placeholder="Password" name="Password" minlength="8" maxlength="12" required>
                 </div>
           
                 </div>
-                
+                <button type="submit" class="btn">Sign Up</button>
               </form>
               <p></p>
               <form>
-                <button type="submit" class="btn">Sign Up</button>
+                
               </form>
               <h3>
                 Already have an account?
