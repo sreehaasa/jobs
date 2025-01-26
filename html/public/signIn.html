@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+    <link rel="javascript" href="../../scripts/validations.js">
+  </head>
 
 <body>
    
@@ -35,27 +36,27 @@
         <div class="card5">
           <div class="card3">
             <div class="col d-flex justify-content-center">
-              <form action="/action_page.php">
+              <form name="signUp" action="/action_page.php" onsubmit="return validateForm()" method= "post">
                 <h2>Sign Up</h2>
                 <div class="input-container">
                   <i class="fa fa-user icon"></i>
-                  <input class="input-field" type="text" placeholder="First Name" name="fname">
+                  <input class="input-field" type="text" placeholder="First Name" name="fname" required>
                 </div>
                 <div class="input-container">
                   <i class="fa fa-envelope icon"></i>
-                  <input class="input-field" type="text" placeholder="Last Name" name="lname">
+                  <input class="input-field" type="text" placeholder="Last Name" name="lname"required>
                 </div>
                 <div class="input-container">
                   <i class="fa fa-handshake-o icon"></i>
-                  <input class="input-field" type="text" placeholder="Student ID" name="StudentID">
+                  <input class="input-field" type="text" placeholder="Student ID" name="StudentID"required>
                 </div>
                 <div class="input-container">
                   <i class="fa fa-envelope icon"></i>
-                  <input class="input-field" type="text" placeholder="Email" name="email">
+                  <input class="input-field" type="email" placeholder="Email" name="email"required>
                 </div>
                 <div class="input-container">
                   <i class="fa fa-phone icon"></i>
-                  <input class="input-field" type="text" placeholder="Password" name="Password">
+                  <input class="input-field" type="text" placeholder="Password" name="Password"required>
                 </div>
           
                 </div>
