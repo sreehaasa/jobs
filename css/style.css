@@ -1,9 +1,11 @@
 
 * {box-sizing: border-box;}
 
+
 body { 
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
 }
 
 .header {
@@ -45,7 +47,7 @@ body {
  font-family:Verdana, Geneva, Tahoma, sans-serif;
 
 }
-
+/*
 .section {
   text-align: right;
   background-color: #e1e1e1b1;
@@ -53,7 +55,7 @@ body {
   left: 0;
   float: left;
 }
-
+*/
 tr:hover {background-color: #D6EEEE;}
 
 
@@ -83,13 +85,6 @@ body {
 
 .row {margin: 0 -5px;}
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 /* Responsive columns */
 @media screen and (max-width: 600px) {
   .column {
@@ -107,7 +102,7 @@ body {
   text-align: left;
   background-color: #848282;
   color: white;
-  margin: auto;
+
 }
 
 .fa {font-size:50px;}
@@ -193,13 +188,20 @@ tr:nth-child(even) {
   height: 100px;
   background-color:red;
 }
+/* Update the .row to use flexbox with column direction */
 .row {
   display: flex;
+  flex-direction: column;  /* Stack items vertically */
+  gap: 20px;               /* Add space between the rows */
+  margin-bottom: 20px;      /* Optionally, you can add margin between rows */
 }
 
-.row {
-  display: block;
+/* Each .column can now take full width, no need for float or specific width */
+.column {
+  width: 100%; /* Ensure each column takes full width */
+  padding: 10px; /* Add some padding around each job card */
 }
+
 
 .row:after {
   content: "";
@@ -234,9 +236,6 @@ h2 i {
 }
 
 
-.row {
-  display: flex;
-}
 
 .column {
   flex: 50%;
@@ -266,10 +265,7 @@ h2 i {
       margin: 30px;
   }
 
-  .row {
-      display: block;
-  }
-
+  
   .column {
       flex: 100%;
   }
@@ -359,6 +355,18 @@ h2 i {
   border-radius: 5px;
   font-size: 18px;
 }
+.btnTiny {
+  text-decoration: none;
+  color: #81767a;
+  padding: 0.1rem;
+  border: 1px solid #656568;
+  margin-top: 15px;
+  display: inline-block;
+  width: auto;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 18px;
+}
 * {
   box-sizing: border-box;
 }
@@ -419,6 +427,14 @@ h2 i {
   width: 100%;
   opacity: 1;
 }
+.btnTiny {
+  background-color: #656568;
+  color: white;
+  padding: .1px 2px;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+}
 
 
 .btn:hover {
@@ -427,10 +443,12 @@ h2 i {
 .btnSmall:hover {
   opacity: .9;
 }
-
+.btnTiny:hover {
+  opacity: .9;
+}
 .container {
   position: relative;
-  width: 50%;
+  
 }
 
 .overlay {
@@ -464,12 +482,6 @@ h2 i {
 
 /* Float four columns side by side */
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 /* Responsive columns */
 @media screen and (max-width: 600px) {
@@ -551,3 +563,102 @@ footer .input-container {
 
 
 }
+/*
+.section {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+  text-align: right;
+}
+
+.section a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+
+.section-right {
+  float: right;
+}
+
+
+@media screen and (max-width: 500px) {
+  .section a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .section-right {
+    float: none;
+  }
+}
+
+section{ 
+  width:100%;
+}
+/*
+    /* Ensure .section takes full width */
+  
+    .section {
+      width: 100%;
+      overflow: hidden; 
+      background-color: #f1f1f1;
+      padding: 20px 10px;
+      text-align: right;
+    }
+
+    .section a {
+      float: left;
+      color: black;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 25px;
+      border-radius: 4px;
+    }
+
+    .subhead h3 {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .section-right {
+      float: right;
+    }
+
+    
+    .section:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    @media screen and (max-width: 600px) {
+      .section a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+
+      .section-right {
+        float: none;
+      }
+    }
+
+    .h3 {
+      float: center;
+    }
+
+    .homePages {
+   
+      background-image: url("business.jpg");
+    }
