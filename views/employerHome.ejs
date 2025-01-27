@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/header') %>
+    </header>
+
+    <div style="padding-left:20px">
+        <h1>
+            Hello, _________
+        </h1>
+
+
+        <h2>Current Postings:</h2>
+
+        <table>
+            <tr>
+                <th>Job ID</th>
+                <th>Job Title</th>
+                <th>Date Posted</th>
+                <th>Status</th>
+
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Lead team developer</td>
+                <td>12/23/24</td>
+                <td>Approved</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>UX Designer</td>
+                <td>3/20/24</td>
+                <td>Denied</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Senior Graphic Designer</td>
+                <td>12/23/24</td>
+                <td>Approved</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Senior Graphic Designer</td>
+                <td>12/23/24</td>
+                <td>Approved</td>
+            </tr>
+
+        </table>
+
+        <button>
+            <a class="btn" href="/posts?employerid=<%= employerid %>"> Post New Job </a>
+        </button>
+    </div>
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+
+    <div class="test">
+        <p>hi</p>
+    </div>
+    </div>
+</body>

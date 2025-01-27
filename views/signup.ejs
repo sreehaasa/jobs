@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head') %>
+</head>
+
+<body>
+  <header>
+    <%- include('./partials/header') %>
+  </header>
+  <div style="padding-left:20px">
+    <div class="content-panel">
+      <div class="row">
+        <div class="column">
+          <h1>Start Your Journey</h1>
+        </div>
+        <div class="column"></div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <div class="cards3">
+            <div class="card3">
+              <div class="col d-flex justify-content-center">
+                <form method="post" action="/users">
+                  <h2><%= usertype %> Sign Up</h2>
+                  <input hidden name="userType" value=<%= usertype %> >
+                  <div class="input-container">
+                    <i class="fa fa-user icon"></i>
+                    <input class="input-field" type="text" placeholder="First Name" name="fname">
+                  </div>
+                  <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Last Name" name="lname">
+                  </div>
+
+                  <% if(usertype === "Student") { %>
+                    <div class="input-container">
+                      <i class="fa fa-handshake-o icon"></i>
+                      <input class="input-field" type="text" placeholder="Student ID" name="StudentID">
+                    </div>
+                  <% } %>
+                  <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Email" name="email">
+                  </div>
+                  <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="text" placeholder="Password" name="Password">
+                  </div>
+
+              </div>
+
+              <p></p>
+                <button type="submit" class="btn">Sign Up</button>
+              </form>
+              <h3>
+                Already have an account?
+
+              </h3>
+              <a class="btn" href="../../html/public/logIn.html">Log In </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  </div>
+  <footer>
+    <%- include('./partials/footer') %>
+  </footer>
+</body>

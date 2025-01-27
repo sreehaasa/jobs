@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head') %>
+</head>
+
+<body>
+  <header>
+    <%- include('./partials/header') %>
+  </header>
+
+  <div style="padding-left:20px">
+    <div class="content-panel">
+      <div class="row">
+        <div class="column">
+          <h1>Welcome Back</h1>
+        </div>
+        <div class="column"></div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <div class="cards3">
+            <div class="card3">
+              <div class="col d-flex justify-content-center">
+                <form method="post" action="/validatelogin">
+                  <h2>Log In</h2>
+                  <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" type="text" placeholder="Email" name="Username">
+                  </div>
+                  <div class="input-container">
+                    <i class="fa fa-phone icon"></i>
+                    <input class="input-field" type="text" placeholder="Password" name="Password">
+                  </div>
+              </div>
+              <p></p>
+              <button type="submit" class="btn">Login</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3>
+        Dont have an account?
+
+      </h3>
+      <a class="btn" href="/signup">Sign Up </a>
+    </div>
+  </div>
+  <footer>
+    <%- include('./partials/footer') %>
+  </footer>
+</body>
