@@ -122,6 +122,7 @@
         <a href="../../index.html" style="float: left; padding: 10px;"><img src="../../allianceLogo.png" alt="Alliance Logo" style="height: 75px; vertical-align: middle;"></a>
         <div class="header-right">
             <a  class="active" href="employerHome.html">Dashboard</a>
+            <a href="../public/jobPage.html">Job Page</a>
             <a  href="addPosting.html">New Posting</a>
             <a  href="studentApplications.html">Student Applications</a>
             <a href="../../html/public/loginOptions.html">Sign Out</a>
@@ -139,6 +140,28 @@
                 <h2>Your Postings</h2>
                 <button class="add-button" href="studentApplications.html">View Applications</button>
             </div>
+            <input onkeyup="filterJobs()" type="text" id="searchbar" placeholder="Search for key words...">
+        <script>
+            function filterJobs() {
+                let input = document.getElementById('searchbar').value.toLowerCase();
+                let table = document.querySelector('table tbody');
+                let rows = table.getElementsByTagName('tr');
+
+                for (let i = 0; i < rows.length; i++) {
+                    let cells = rows[i].getElementsByTagName('td');
+                    let match = false;
+
+                    for (let j = 0; j < cells.length; j++) {
+                        if (cells[j].innerText.toLowerCase().includes(input)) {
+                            match = true;
+                            break;
+                        }
+                    }
+
+                    rows[i].style.display = match ? '' : 'none';
+                }
+            }
+        </script>
             <table style="border-radius: 10px; overflow: hidden;">
                 <style>
                     tbody tr:nth-child(odd) {
@@ -162,7 +185,7 @@
                                 <span>12345</span>
                             </div>
                         </td>
-                        <td>Intern</td>
+                        <td>Internship</td>
                         <td class="status-cell"><div class="action-buttons">
                             <button class="approved-btn">Live ✅</button>
                             <button class="denied-btn">Down ❌</button>
