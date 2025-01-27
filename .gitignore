@@ -2,3 +2,4 @@
 node_modules
 localdb.session.sql
 .DS_Store
+config/database.js
