@@ -417,9 +417,7 @@ h2 i {
   padding: 10px;
 }
 
-.input-field:focus {
-  border: 2px solid #334fb4;
-}
+
 
 /* Set a style for the submit button */
 .btn {
@@ -559,6 +557,10 @@ footer .input-container {
   justify-content: center;
   margin-left: -40px;
 }
+
+/* Style the input fields */
+
+
 
 
 
