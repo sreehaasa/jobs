@@ -8,74 +8,124 @@
     <link rel="stylesheet" href="../../css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="javascript" href="../../scripts/validations.js">
-  
+    
   </head>
 
 <body>
+
+  <style>
+    .parallax {
+    background-image: url("../../aai.jpg");
+    margin-top: -50px;
+    min-height: 800px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+   }
+    
+    .form-container {
+      margin: 50px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 400px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.5em;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-size: 0.9em;
+      color: #555;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 0.9em;
+    }
+
+    button {
+      background-color: #003366;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #a08105;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transform: scale(1.02);
+      transition: all 0.3s ease;
+    }
+
+    .upload-btn {
+      background-color: #003366;
+      color: #fff;
+      border: none;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .upload-btn:hover {
+      background-color: #a08105;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transform: scale(1.02);
+      transition: all 0.3s ease;
+    }
+  </style>
+
+
   <div class="header">
     <a href="../../index.html" style="float: left; padding: 10px;"><img src="../../allianceLogo.png" alt="Alliance Logo" style="height: 75px; vertical-align: middle;"></a>
     <div class="header-right">
         <a   href="../../html/student/studentHome.html">Home</a>
         <a class="active" href="../../html/student/application.html">Apply Now</a>
+        <a  href="../../html/student/studentApplicationStatus.html">Application Status</a>
         <a href="../../html/public/logIn.html">Available Jobs</a>
         <a  href="../../index.html">Sign Out</a>
           
     </div>
   </div>
-<div style="padding-left:20px">  
-<div class="content-panel">
-    <div class="row">
-      <div class="column">
-    
-      </div>
-      <div class="column"></div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <div class="cards3">
-          <div class="card3">
-            <div class="col d-flex justify-content-center">
-              <form action="/action_page.php">
-                <h2>Application Form</h2>
-                <div class="input-container">
-                  <i class="fa fa-user icon"></i>
-                  <input class="input-field" type="text" placeholder="First Name" name="fname" required>
-                </div>
-                <div class="input-container">
-                  <i class="fa fa-envelope icon"></i>
-                  <input class="input-field" type="text" placeholder="Last Name" name="lname" required>
-                </div>
+<div class="parallax">
+  <div style="height: 50px;"></div>
+<div class="form-container">
+    <h1>Apply Now</h1>
+    <form>
+      <label for="name">Full Name*</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name" required>
 
-                <div class="input-container">
-                  <i class="fa fa-envelope icon"></i>
-                  <input class="input-field" type="email" placeholder="Email" name="email" required>
-                </div>
-                <div class="input-container">
-                  <i class="fa fa-phone icon"></i>
-                  <input class="input-field" type="number" placeholder="Phone Number" name="Pnumber" required>
-                </div>
-                <div class="input-container">
-                  <i class="fa fa-address-card icon"></i>
-                  <input class="input-field" type="text" placeholder="LinkedIn profile" name="profile" required>
-                </div>
-                <p> Upload Resume </p>
-                <div class="input-container">
-                  <i class="fa fa-upload icon"></i>
-                  <input class="input-field" type="file" placeholder="Resume" name="resume" required>
-                </div>
-                <button type="submit" class="btn">Apply</button>
-              </form>
-              <p></p>
-              <form>
-               
-              </form>
-            </div>
-          </div>
-      </div>
-    </div>
+      <label for="email">Email Address*</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="phone">Phone Number*</label>
+      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number (XXX-XXX-XXXX)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+
+      <label for="date">Date*</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="resume">Upload Your Resume</label>
+      <input type="file" id="resume" name="resume" class="upload-btn" required>
+
+      <button type="submit" onclick="history.back()">Submit Application</button>
+    </form>
   </div>
-  </div>
+
+  <button type="button" onclick="history.back()" style="background-color: #003366; color: #fff; border: none; cursor: pointer; font-weight: bold; width: 80%; padding: 10px; margin: 0 auto 15px auto; border-radius: 5px; font-size: 0.9em; display: block;">Go Back</button>
 </div>
+
 <div class="footer">
   <address>
       Contact Us at <a href="eduvantage@gmail.com">eduvantage@gmail.com</a>.
