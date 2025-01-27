@@ -9,7 +9,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="javascript" href="../../scripts/validations.js">
   
-   
+    <style>
+      .parallax {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        background-image: url("../../aai.jpg");
+        margin-top: -100px;
+        min-height: 900px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
   </head>
     
     </body>
@@ -28,12 +41,15 @@
     
   </div>
 </div>
-<div style="padding-left:20px">
+
+<div class="parallax" style="padding-left:20px">
+  <div style="height: 90px;"></div>
 <div class="content-panel">
     <div class="row">
       <div class="column">
-        <h1>Start Your Journey</h1>
-      </div>
+        <img src="../../allianceLogo.png" alt="Alliance Logo" style="display: block; margin-left: auto; margin-right: auto; width: 300px;">
+        <h1 class="title" style="padding: 10px 20px; background-color: white; text-align: center; margin-top: 50px; display: inline-block; position: relative; top: 50px; left: 50%; transform: translateX(-50%); font-size: 36px; border-radius: 10px;">Start Your Journey</h1>
+              </div>
       <div class="column"></div>
     </div>
     <div class="row">
@@ -53,7 +69,13 @@
                 </div>
                 <div class="input-container">
                   <i class="fa fa-id-badge icon"></i>
-                  <input class="input-field" type="text" placeholder="Student ID" name="StudentID" maxlength="10"required>
+                  <div class="input-container">
+                    <select class="input-field" name="role" id="role" required>
+                      <option value="" disabled selected>Select your role</option>
+                      <option value="student">Student</option>
+                      <option value="employer">Employer</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="input-container">
                   <i class="fa fa-envelope icon"></i>
@@ -71,14 +93,16 @@
               <form>
                 
               </form>
+              <div style="height: 30px;"></div>
               <h3>
                 Already have an account?
                
               </h3>
-              <a class="btn" href="../../html/public/logIn.html">Log In </a>
+              <a class="btn" href="loginOptions.html">Log In </a>
                
             </div>
           </div>
+          <div style="height: 90px;"></div>
       </div>
     </div>
   </div>
