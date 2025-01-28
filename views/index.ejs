@@ -9,127 +9,215 @@
    <header>
       <%- include('./partials/header') %>
    </header>
-   <div style="padding-left:20px">
-      <h1>Eduvantage</h1>
-      <a img src="/jobs/assets/logo.png"></a>
-      <h3>
-         About us:
-      </h3>
+
+<style>
+   .parallax {
+     /* The image used */
+   background-image: url("/images/aai.jpg");
+   
+   /* Set a specific height */
+   min-height: 500px;
+   
+   /* Create the parallax scrolling effect */
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   }
+   </style>
+
+<div class='parallax'>
+   <div style="height: 150px;"></div>
+   <img src="/images/allianceLogo.png" alt="Alliance Logo" style="display: block; margin-left: auto; margin-right: auto; width: 300px;">
+   <h1 class="title" style="padding: 10px 20px; background-color: white; text-align: center; margin-top: 50px; display: inline-block; position: relative; top: 50px; left: 50%; transform: translateX(-50%); font-size: 50px; border-radius: 10px;">AAI Career Center</h1>
+   <div style="height: 350px;"></div>
+   <div class="about us" style="padding: 10px 20px; background-color: white; text-align: center; margin-top: 50px; display: inline-block; position: relative; top: 50px; left: 50%; transform: translateX(-50%);">
+      <h3>About us:</h3>
       <p>
-         Welcome to Eduvantage, where we value your success! We work with your school to ensure you find the
-         best career that suits your passions, goals, and personality. We use cutting edge
-         technology to connect you to employers to get a job with ease.
+         Alliance Academy values  success! We work  to ensure students find the 
+         best career that suits their passions, goals, and personality. We use cutting edge
+         technology to connect students to employers to get a job with ease.
       </p>
-      <div class=section>
-         <br>
-         <div class="subhead">
-            <h3>
-               Mission &nbsp;&nbsp;
-            </h3>
-         </div>
-         <p>
-            Here, our utmost goal is to help our students get started in the professional world in the
-            most efficient way. Our team consists of multitudes of people who work to create the most
-            student - centered platform, ensuring only quality job postings with simple application processes--the very
-            guidance counselors
-            here at school!
-            <br>
-            <br>
-         </p>
-      </div>
    </div>
-   <h1>
+   <div style="height: 125px;"></div>
+   <h1 class="slogan" style="padding: 10px 20px; background-color: rgb(249, 249, 157); text-align: center; margin-top: 50px; display: inline-block; position: relative; top: 50px; left: 50%; transform: translateX(-50%); font-size: 50px; border-radius: 10px; width: 90%">Connecting Students to Opportunities, Building Futures Together!</h1>
+   <div style="height: 125px;"></div>
+   <div class="mission" style="padding: 10px 20px; background-color: white; text-align: center; margin-top: 50px; display: inline-block; position: relative; top: 50px; left: 50%; transform: translateX(-50%);">
 
-   </h1>
-   <h1>
+      <h3>Mission</h3>
+      <p>
+         Here, our utmost goal is to help our students get started in the professional world in the
+         most efficient way. Our team consists of multitudes of people who work to create the most
+         student-centered platform, ensuring only quality job postings with simple application processes--the very guidance counselors 
+         here at school! 
+      </p>
+   </div>
+   <div style="height: 200px;"></div>
 
-   </h1>
-   <h1>
+   <div class="slideshow-container" style="border: 5px solid #264462; border-radius: 100px; padding: 250px; background-color: #98c3ed; width: 90%">
 
-
-
-   </h1>
-   <br>
-   <br>
-   <p>
-
-   </p>
-   <br>
-   <h1>
-      <br> &nbsp
-   </h1>
-   <div class="center">
-      <div class="row">
-         <div class="column">
-            <div class="card5">
-               <p><i class="fa fa-user"></i></p>
-               <h3>Employers</h3>
-               <p>
-                  <ul>
-                     <li>
-                        Add job postings
-                     </li>
-                     <li>
-                        Review student applications
-                     </li>
-                     <li>
-                        Obtain hardworking and loyal employees!
-                     </li>
-                  </ul>
-                  <a class="btnSmall" href="/signup?utype=Employer"> GO! </a>
-               </p>
-            </div>
+      <div class="mySlides fade">
+         <div class="circle-image" style="background-image: url('/images/person1.jpg');"></div>
+         <div class="text">
+            <h2 style="color: black; font-size: 25px">"This website was a game-changer for me! I found an amazing internship in marketing, and the application process was so simple. The guidance counselors even helped me prepare for the interview. I couldn’t have asked for a better experience!"</h2>
+            <p style="color: black; font-size: 25px">John Doe</p>
+            <p style="color: black; font-size: 20px">International Bussiness</p>
          </div>
-         <div class="column">
-            <div class="card5">
-               <p><i class="fa fa-check"></i></p>
-               <h3>Students</h3>
-               <div class="bulletPoints" <p>
-                  <ul>
-                     <li>
-                        View jobs that fit for you
-                     </li>
-                     <li>
-                        Submit quality applications
-                     </li>
-                     <li>
-                        Get the perfect opportunities for you!
-                     </li>
-                  </ul>
-                  <a class="btnSmall" href="/signup?utype=Student"> GO! </a>
-                  </p>
-               </div>
-            </div>
-         </div>
-         <div class="column">
-            <div class="card5">
-               <p><i class="fa fa-user"></i></p>
-               <h3>Admins</h3>
-               <p>
-                  <ul>
-                     <li>
-                        Review unpublished job postings
-                     </li>
-                     <li>
-                        Create a beneficial and efficient environment!
-                     </li>
-
-                  </ul>
-                  <a class="btnSmall" href="/signup?utype=Admin"> GO! </a>
-
-               </p>
-            </div>
-         </div>
-         <br>
-         <section>
-            <h1>
-
-         </section>
       </div>
-      <br>
 
-      <footer>
-         <%- include('./partials/footer') %>
-      </footer>
+      <div class="mySlides fade">
+         <div class="circle-image" style="background-image: url('/images/allianceLogo.jpg');"></div>
+         <div class="text">
+            <h2 style="color: black; font-size: 25px">"I was struggling to find job opportunities that matched my interests, but this platform made it so easy. I applied for a part-time graphic design job, and now I’m gaining real-world experience while still in school. Highly recommend!"</h2>
+            <p style="color: black; font-size: 25px">Jane Smith</p>
+            <p style="color: black; font-size: 20px">Graphic Design</p>
+         </div>
+      </div>
 
+      <div class="mySlides fade">
+         <div class="circle-image" style="background-image: url('/images/person3.jpg');"></div>
+         <div class="text">
+            <h2 style="color: black; font-size: 25px">"Thanks to this website, I landed a summer job as a lab assistant. It’s been a great opportunity to learn more about the field I want to pursue in college. The site was easy to navigate, and the resume upload feature saved me so much time!"</h2>
+            <p style="color: black; font-size: 25px">Sam Wilson</p>
+            <p style="color: black; font-size: 20px">Clinical Lab</p>
+         </div>
+      </div>
+
+      <div class="mySlides fade">
+         <div class="circle-image" style="background-image: url('/images/person3.jpg');"></div>
+         <div class="text">
+            <h2 style="color: black; font-size: 25px">"As a freshman, I wasn’t sure where to start looking for work experience, but this website helped me find a volunteer position that aligns with my interests in engineering. It’s been a fantastic way to build my skills and resume!"</h2>
+            <p style="color: black; font-size: 25px">Lianne Kelly</p>
+            <p style="color: black; font-size: 20px">Mechatronics</p>
+         </div>
+      </div>
+
+   </div>
+
+   <style>
+      .slideshow-container {
+         position: relative;
+         max-width: 1000px;
+         margin: auto;
+         border: 2px solid #000;
+         border-radius: 10px;
+         padding: 10px;
+         background-color: #fff;
+      }
+
+      .mySlides {
+         display: none;
+         text-align: center;
+      }
+
+      .circle-image {
+         width: 100px;
+         height: 100px;
+         border-radius: 50%;
+         background-size: cover;
+         background-position: center;
+         margin: auto;
+      }
+
+      .text {
+         padding: 10px;
+      }
+
+      .fade {
+         animation-name: fade;
+         animation-duration: 1.5s;
+      }
+
+      @keyframes fade {
+         from {opacity: .4} 
+         to {opacity: 1}
+      }
+   </style>
+
+   <script>
+      let slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+         let i;
+         let slides = document.getElementsByClassName("mySlides");
+         for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+         }
+         slideIndex++;
+         if (slideIndex > slides.length) {slideIndex = 1}    
+         slides[slideIndex-1].style.display = "block";  
+         setTimeout(showSlides, 3000); // Change image every 3 seconds
+      }
+   </script>
+
+<div style="height: 150px;"></div>
+
+<div style="padding: 5px 10px; background-color: white; text-align: center; margin-top: 25px; display: inline-block; position: relative; left: 50%; transform: translateX(-50%); width: 90%; font-size: 18px; border-radius: 5px;">
+<h2>
+  &nbsp;&nbsp;Get Started Today!   
+</h2>
+
+ 
+
+<div class="center">
+    <div class="row">
+       <div class="employerCard">
+          <div class="card5">
+             <p><i class="fa fa-user"></i></p>
+             <h3>Employers</h3>
+             <p>
+               <ul>
+                  <li>
+                     Add job postings
+                  </li>
+                  <li>
+                     Review student applications
+                  </li>
+                  <li>
+                     Obtain hardworking and loyal employees!
+                  </li>
+               </ul>
+               <a class="btnSmall" href="/signup?utype=Employer"> GO! </a>
+             </p>
+          </div>
+       </div>
+       <div class="studentCard">
+          <div class="card5">
+             <p><i class="fa fa-user"></i></p>
+             <h3>Students</h3>
+             <div class="bulletPoints">
+             <p>
+               <ul>
+                  <li>
+                     View jobs that fit for you
+                  </li>
+                  <li>
+                     Submit quality applications
+                  </li>
+                  <li>
+                     Get the perfect opportunities for you!
+                  </li>
+               </ul>
+               <a class="btnSmall" href="/signup?utype=Student"> GO! </a>
+             </p>
+          </div>
+       </div>
+    </div>
+   </div>
+<br>
+</div>
+</div>
+<section>
+   <h1>
+
+      <div style="height: 150px;"></div>
+    
+</section>
+</div>
+<br>
+</div>
+<footer>
+   <%- include('./partials/footer') %>
+</footer>
 </body>

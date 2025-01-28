@@ -9,50 +9,53 @@
   <header>
     <%- include('./partials/header') %>
   </header>
-  <div style="padding-left:20px">
-    <div class="row">
-      <div class="column">
-        <div class="cards3">
-          <div class="card3">
-            <div class="col d-flex justify-content-center">
-              <form method="post" action="/posts">
-                <h2>Add Posting</h2>
-                <input hidden name="EmployerId" value=<%= employerid %> >
-                <div class="input-container">
-                  <i class="fa fa-user icon"></i>
-                  <input class="input-field" type="text" placeholder="Job Title" name="title">
-                </div>
-                <div class="input-container">
-                  <i class="fa fa-envelope icon"></i>
-                  <input class="input-field" type="text" placeholder="Pathway" name="pathway">
-                </div>
-                <div class="input-container">
-                  <i class="fa fa-handshake-o icon"></i>
-                  <input class="input-field" type="text" placeholder="Type" name="type">
-                </div>
 
-                <div class="input-container">
-                  <i class="fa fa-phone icon"></i>
-                  <input class="input-field" type="text" placeholder="Main Responsibilities" name="responsibilities">
+<div style="padding-left:20px">
+        <div class="row">
+            <div class="column">
+              <div class="cards3">
+                <div class="card3">
+                  <div class="col d-flex justify-content-center">
+                    <form method="post" action="/posts">
+                      <h2>Add Posting</h2>
+                      <input hidden name="EmployerId" value=<%= employerid %> >
+                      <div class="input-container">
+                        <i class="fa fa-user icon"></i>
+                        <input class="input-field" type="text" placeholder="Job Title" name="title">
+                      </div>
+                      <div class="input-container">
+                        <i class="fa fa-envelope icon"></i>
+                        <input class="input-field" type="text" placeholder="Pathway" name="pathway">
+                      </div>
+                      <div class="input-container">
+                        <i class="fa fa-handshake-o icon"></i>
+                        <input class="input-field" type="text" placeholder="Type" name="type">
+                      </div>
+        
+                      <div class="input-container">
+                        <i class="fa fa-phone icon"></i>
+                        <input class="input-field" type="text" placeholder="Main Responsibilities" name="responsibilities">
+                      </div>
+                      <div class="input-container">
+                        <i class="fa fa-address-card icon"></i>
+                        <input class="input-field" type="text" placeholder="Required Skills" name="skills">
+                      </div>
+                      <div class="input-container">
+                        <i class="fa fa-upload icon"></i>
+                        <input class="input-field" type="text" placeholder="Salary" name="salary">
+                      </div>
+                    
+                    <p></p>
+                    
+                      <button type="submit" class="btn">Post</button>
+                    </form>
+                  </div>
                 </div>
-                <div class="input-container">
-                  <i class="fa fa-address-card icon"></i>
-                  <input class="input-field" type="text" placeholder="Required Skills" name="skills">
-                </div>
-                <div class="input-container">
-                  <i class="fa fa-upload icon"></i>
-                  <input class="input-field" type="text" placeholder="Salary" name="salary">
-                </div>
-                <p></p>
-                <button type="submit" class="btn">Add Post</button>
-              </form>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <footer>
-    <%- include('./partials/footer') %>
-  </footer>
+</div>
+</div>  
+<footer>
+  <%- include('./partials/footer') %>
+</footer>      
 </body>

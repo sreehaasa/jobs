@@ -5,7 +5,7 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'postgres',
-  password: '2025PgDb$$',
+  password: '2025Fbla$$',
   port: 5432
 });
 
@@ -13,8 +13,47 @@ const pool = new Pool({
 exports.getHome = function (req, res) {
   res.render('index', {
     title: 'My App',
-    message: 'Hello Atchuta!'
+    message: 'Hello!'
   });
+}
+
+// Display Student Home Page
+exports.getStudentHome = function (req, res) {
+  //fetch current job applications
+  console.log(req.session.user.userid);
+  console.log(req.session.user.name);
+  res.render('studentHome', {
+    username: req.session.user.name,
+    userid: req.session.user.userid
+  });
+}
+
+// Display Employer Home Page
+exports.getEmployerHome = function (req, res) {
+  //fetch current job postings 
+  const employerid = req.session.user.userid;
+  const username = req.session.user.name;
+  console.log(employerid);
+  console.log(username);
+ 
+  pool.query('select p.postingid, p.title, p.pathway, p.responsibilities, p.category, p.skills, p.salary, p.dateposted, p.status, u.username from jobs.posting p, jobs.user u where p.employerid = u.userid and  u.userid = $1', [employerid], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    console.log(results.rows);
+    if(results.rows.length > 0){
+      console.log("userid=   "+results.rows[0].postingid);
+      console.log("password= "+results.rows[0].title);
+      console.log("userType= "+results.rows[0].pathway);
+    }
+    res.render('employerHome', {
+      username: username,
+      employerid: employerid,
+      jobs: results.rows
+    });
+  });
+
+
 }
 
 // Display Sign Up Page
@@ -39,14 +78,14 @@ exports.createAccount = function (req, res) {
 
   const userName = userType === "Student" ? StudentID : email;
 
-  pool.query('INSERT INTO public.user (FirstName, LastName, EmailAddress, UserName, Password, Pin, UserType) VALUES ($1,$2, $3, $4, $5, 1234, $6)', [fname, lname, email, userName, Password, userType], (error, results) => {
+  pool.query('INSERT INTO jobs.user (FirstName, LastName, EmailAddress, UserName, Password, Pin, UserType) VALUES ($1,$2, $3, $4, $5, 1234, $6)', [fname, lname, email, userName, Password, userType], (error, results) => {
     if (error) {
       throw error;
     }
-    // res.status(201).send(`User added with ID: ${results.insertId}`);
     res.render('login', {
       title: 'My App',
-      message: 'Hello Atchuta!'
+      message: '',
+      postingid:''
     });
 
   });
@@ -56,8 +95,8 @@ exports.createAccount = function (req, res) {
 exports.getSignin = function (req, res) {
   
   res.render('login', {
-    title: 'login',
-    message: 'Hello Atchuta!'
+     message: '',
+     postingid:''
   });
 }
 
@@ -65,11 +104,11 @@ exports.getSignin = function (req, res) {
 exports.validateLogin = function (req, res) {
 
     console.log(req.body);
-    const {Username, Password} = req.body;
+    const {Username, Password, postingid} = req.body;
     console.log(Username);
     console.log(Password);
 
-    pool.query('SELECT UserId, Password, UserType FROM public.user WHERE EmailAddress = $1', [Username], (error, results) => {
+    pool.query('SELECT UserId, FirstName, LastName, Password, UserType FROM jobs.user WHERE EmailAddress = $1', [Username], (error, results) => {
       if (error) {
         throw error;
       }
@@ -79,14 +118,31 @@ exports.validateLogin = function (req, res) {
       console.log("userType= "+results.rows[0].usertype);
 
       if(Password === results.rows[0].password){
+        
+        //set user info in session
+        req.session.user = {
+          userid: results.rows[0].userid,
+          usertype: results.rows[0].usertype,
+          name: results.rows[0].firstname
+        };
+
+        res.locals.user = {
+          userid: results.rows[0].userid,
+          usertype: results.rows[0].usertype,
+          name: results.rows[0].firstname
+        };
+        
         if("Employer" === results.rows[0].usertype ) {
-          res.render('employerHome', {
-            employerid: results.rows[0].userid
-          });
+          res.redirect('/employerHome');
         } else if ("Student" === results.rows[0].usertype ){
-          res.render('studentHome', {
-            studentid: results.rows[0].userid
-          });
+          if(postingid){
+            res.render('application', {
+              studentid: results.rows[0].userid,
+              postingid: postingid
+            });
+          }else{
+            res.redirect('/studentHome');
+          }
         } else{
           res.render('index', {
             title: 'My App'
@@ -94,8 +150,8 @@ exports.validateLogin = function (req, res) {
         }
       }else{
         res.render('login', {
-          errormessage: "Invalid Login. Please try again!",
-          message: 'Hello Atchuta!'
+          message: "Invalid Login. Please try again!",
+          postingid:''
         });
       }
     });
@@ -107,7 +163,7 @@ exports.getPost = function (req, res) {
   console.log(req.query.employerid);
   res.render('addPosting', {
     employerid: req.query.employerid,
-    message: 'Hello Atchuta!'
+    message: 'Hello!'
   });
 }
 
@@ -124,15 +180,51 @@ exports.createPost = function (req, res) {
     skills,
     EmployerId
   } = req.body;
-  pool.query('INSERT INTO public.posting (Title,Pathway,Responsibilities,Category,Salary,Status,Skills,EmployerId) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)', [ title,pathway,responsibilities,type,salary,'Pending',skills,EmployerId], (error, results) => {
+  pool.query('INSERT INTO jobs.posting (Title,Pathway,Responsibilities,Category,Salary,Status,Skills,EmployerId) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)', [ title,pathway,responsibilities,type,salary,'Pending',skills,EmployerId], (error, results) => {
     if (error) {
       throw error;
     }
-    // res.status(201).send(`User added with ID: ${results.insertId}`);
-    res.render('employerHome', {
+   /* res.render('employerHome', {
       employerid: EmployerId,
-      message: 'Hello Atchuta!'
+      username: req.session.user.name
     });
+    */
+    res.redirect('/employerHome');
 
   });
+}
+
+// Display All Jobs Page
+exports.getJobs = function (req, res) {
+  pool.query('select p.postingid, p.title, p.pathway, p.responsibilities, p.category, p.skills, p.salary, p.dateposted, p.status from jobs.posting p', (error, results) => {
+    if (error) {
+      throw error;
+    }
+    console.log(results.rows);
+    if(results.rows.length > 0){
+      console.log("userid=   "+results.rows[0].postingid);
+      console.log("password= "+results.rows[0].title);
+      console.log("userType= "+results.rows[0].pathway);
+    }
+    res.render('availableJobs', {
+      jobs: results.rows
+    });
+  });
+}
+
+// Display Job Application
+exports.getApplication = function (req, res) {
+    const postingid = req.query.postingid;
+    if(req.session.user) {
+        res.render('application', {
+        userid: req.session.user.userid,
+        postingid: postingid
+      });
+    } else{
+      res.render('login', {
+        postingid: postingid,
+        studentid:'',
+        message: ''
+      });
+    }
 }

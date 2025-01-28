@@ -10,43 +10,75 @@
     <%- include('./partials/header') %>
   </header>
 
-  <div style="padding-left:20px">
-    <div class="content-panel">
-      <div class="row">
-        <div class="column">
-          <h1>Welcome Back</h1>
-        </div>
-        <div class="column"></div>
+  <style>
+    .parallax {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      background-image: url("/images/aai.jpg");
+      margin-top: -100px;
+      min-height: 900px;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+
+<div class="parallax" style="padding-left:20px">
+<div style="height: 90px;"></div>
+<div class="content-panel">
+    <div class="row">
+      <div class="column">
+        <img src="/images/allianceLogo.png" alt="Alliance Logo" style="display: block; margin-left: auto; margin-right: auto; width: 300px;">
+   <h1 class="title" style="padding: 10px 20px; background-color: white; text-align: center; margin-top: 50px; display: inline-block; position: relative; top: 50px; left: 50%; transform: translateX(-50%); font-size: 36px; border-radius: 10px;">Welcome Back!</h1>
+   <div style="height: 150px;"></div>
       </div>
-      <div class="row">
+  <div classs="card5">
+      
+    
+  
         <div class="column">
-          <div class="cards3">
+          <div class="card5">
             <div class="card3">
               <div class="col d-flex justify-content-center">
-                <form method="post" action="/validatelogin">
-                  <h2>Log In</h2>
+                <form method="post" action="/validatelogin" onsubmit="return validateForm()">
+                  <h2> Log In</h2>
+                   <p><%= message %></p>
+                   <input type="hidden" name="postingid" value=<%= postingid %> >
+                  <div class="input-container">
+                  </div>
                   <div class="input-container">
                     <i class="fa fa-envelope icon"></i>
-                    <input class="input-field" type="text" placeholder="Email" name="Username">
+                    <input class="input-field" type="email" placeholder="Email" name="Username" maxlength="50" required>
                   </div>
                   <div class="input-container">
-                    <i class="fa fa-phone icon"></i>
-                    <input class="input-field" type="text" placeholder="Password" name="Password">
+                    <i class="fa fa-handshake-o icon"></i>
+                    <input class="input-field" type="password" placeholder="Password" name="Password" minlength ="8" maxlength="12" required>
                   </div>
+            
+                  </div>
+                  <button type="submit" class="btn">Login</button>
+                </form>
+                <p></p>
+
+<h1>
+  <br>
+</h1>
+                <h3>
+                  Dont have an account?
+                
+                </h3>
+                <a class="btn" href="/">Sign Up </a>
               </div>
-              <p></p>
-              <button type="submit" class="btn">Login</button>
-              </form>
             </div>
-          </div>
         </div>
       </div>
-      <h3>
-        Dont have an account?
-
-      </h3>
-      <a class="btn" href="/signup">Sign Up </a>
+      <div style="height: 90px;"></div>
     </div>
+  </div>
+   
+
   </div>
   <footer>
     <%- include('./partials/footer') %>

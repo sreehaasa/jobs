@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head') %>
+</head>
+
+<body>
+  <header>
+    <%- include('./partials/header') %>
+  </header>
+
+
+  <div style="height: 50px;"></div>
+  <button type="button" onclick="history.back()"
+    style="background-color: #003366; color: #fff; border: none; cursor: pointer; font-weight: bold; width: 80%; padding: 10px; margin: 0 auto 15px auto; border-radius: 5px; font-size: 0.9em; display: block;">Go
+    Back</button>
+  <div style="height: 25px;"></div>
+
+  <input onkeyup="filterJobs()" type="text" id="searchbar" placeholder="Search for key words...">
+  <script>
+
+    function filterJobs() {
+      let input = document.getElementById('searchbar').value.toLowerCase();
+      let jobCards = document.getElementsByClassName('job-card');
+
+      for (let i = 0; i < jobCards.length; i++) {
+        let jobCard = jobCards[i];
+        let jobText = jobCard.textContent || jobCard.innerText;
+
+        if (jobText.toLowerCase().indexOf(input) > -1) {
+          jobCard.style.display = "";
+        } else {
+          jobCard.style.display = "none";
+        }
+      }
+    }
+  </script>
+
+  <div style="padding-left:20px">
+
+    <div class="job-posting">
+      <% jobs.forEach(function(job, index) { %>
+        <div class="job-card">
+          <div class="card5">
+            <h2>
+              <%= job.title %>
+            </h2>
+            <p>
+              <b> Pathway: </b>
+              <br>
+              <%= job.pathway %> <br>
+            </p>
+            <p>
+              <b> Type: </b>
+              <br>
+              <%= job.category %> <br>
+            </p>
+            <p>
+              <b> Certifications: </b>
+              <br> A Bachelor's degree in Computer Science Engineering is what is
+              required for this position. <br>
+            </p>
+            <p>
+              <b> Main Responsibilities: </b>
+              <br>
+              <%= job.responsibilities %>
+            </p>
+            <p>
+              <b>Required Skills:</b>
+              <br>
+              <%= job.skills %>
+            </p>
+            <p>
+              <b>Salary:</b>
+              <br>
+              <%= job.salary %>
+            </p>
+
+            <a class="btn" href="/application?postingid=<%= job.postingid %>"> Apply </a>
+          </div>
+        </div>
+    </div>
+    <% }); %>
+  </div>
+
+  <footer>
+    <%- include('./partials/footer') %>
+  </footer>
+</body>

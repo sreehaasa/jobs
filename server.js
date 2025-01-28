@@ -1,5 +1,6 @@
 // Set express as web application framework
 const express = require('express');
+const session = require('express-session');
 //const bodyParser = require('body-parser');
 const app = express();
 const requestRoutes = require("./routes/requestRoutes");
@@ -8,6 +9,13 @@ const requestRoutes = require("./routes/requestRoutes");
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
+
+//set up session to carry user information
+app.use(session({
+    secret: '32afaAFACzctafer$a3#', 
+    resave: false,
+    saveUninitialized: true
+  }));
 
 //app.use(bodyParser.json());
 app.use(express.json({ extended: true }));

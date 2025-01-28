@@ -3,6 +3,7 @@
     "body-parser": "^1.20.3",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
+    "express-session": "^1.18.1",
     "jslint": "^0.12.1",
     "node": "^18.20.6",
     "pg": "^8.13.1"
