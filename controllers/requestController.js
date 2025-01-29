@@ -92,7 +92,6 @@ exports.getEmployerHome = function (req, res) {
 
 
 }
-
 // Display Sign Up Page
 exports.getSignup = function (req, res) {
   res.render('signup', {
@@ -224,11 +223,6 @@ exports.createPost = function (req, res) {
     if (error) {
       throw error;
     }
-   /* res.render('employerHome', {
-      employerid: EmployerId,
-      username: req.session.user.name
-    });
-    */
     res.redirect('/employerHome');
 
   });
