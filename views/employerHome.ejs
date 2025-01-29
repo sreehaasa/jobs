@@ -134,10 +134,10 @@
         <div class="table-container">
             <div class="header" style="border-radius: 10px; overflow: hidden;">
                 <h2>Your Postings</h2>
-                <button class="add-button" href="studentApplications.html">View Applications</button>
+                <a class="add-button" href="">View Applications</a>
                 <a href="/posts?employerid=<%= employerid %>">Post New Job</a>
             </div>
-            <!--
+            
             <input onkeyup="filterJobs()" type="text" id="searchbar" placeholder="Search for key words...">
             <script>
                 function filterJobs() {
@@ -160,7 +160,7 @@
                     }
                 }
             </script>
-            -->
+            
             <table style="border-radius: 10px; overflow: hidden;">
                 <style>
                     tbody tr:nth-child(odd) {
@@ -192,11 +192,11 @@
                         <td><%= job.salary %></td>
                         <td><%= job.dateposted %></td>
                         <td class="status-cell">
-                            <% if(job.status == "Approved"){ %>
-                                <button class="approved-btn">Live ✅</button>
+                            <% if(job.status == "Approve"){ %>
+                                <button class="approved-btn">Approved ✅</button>
                             <% } %>
-                            <% if(job.status == "Denied"){ %>
-                                <button class="denied-btn">Down ❌</button>
+                            <% if(job.status == "Deny"){ %>
+                                <button class="denied-btn">Denied ❌</button>
                             <% } %>
                             <% if(job.status == "Pending"){ %>
                               <button class="pending-btn">Pending 🤔</button>
@@ -208,7 +208,7 @@
                         <tr>
                             <td>
                                 <div class="employee-info">
-                                    <span>No Postings Available. You can add a new Post using the link above.</span>
+                                    <span>No Postings Found. You can add a new Post using the link above.</span>
                                 </div>
                             </td>
                         </tr>    

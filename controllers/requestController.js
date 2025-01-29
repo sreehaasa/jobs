@@ -17,15 +17,52 @@ exports.getHome = function (req, res) {
   });
 }
 
+
+// Display Admin Home Page
+exports.getAdminHome = function (req, res) {
+  //fetch current job applications
+  const adminid = req.session.user.userid;
+  const username = req.session.user.name;
+  console.log(adminid);
+  console.log(username);
+  pool.query('select p.postingid,p.title,p.pathway,p.responsibilities,p.category,p.skills,p.salary,p.dateposted, p.status from jobs.posting p', (error, results) => {
+    if (error) {
+      throw error;
+    }
+    console.log(results.rows);
+    res.render('adminHome', {
+      username: req.session.user.name,
+      userid: req.session.user.userid,
+      jobs: results.rows
+    });
+  }); 
+}
+
+
 // Display Student Home Page
 exports.getStudentHome = function (req, res) {
   //fetch current job applications
-  console.log(req.session.user.userid);
-  console.log(req.session.user.name);
-  res.render('studentHome', {
-    username: req.session.user.name,
-    userid: req.session.user.userid
+  const studentid = req.session.user.userid;
+  const username = req.session.user.name;
+  console.log(studentid);
+  console.log(username);
+  pool.query('SELECT p.postingid, p.title, a.applicationid, a.status, a.dateapplied, u.username FROM jobs.application a, jobs.posting p, jobs.user u WHERE a.postingid = p.postingid AND a.studentid = u.userid AND u.userid = $1', [studentid], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    console.log(results.rows);
+    if(results.rows.length > 0){
+     // console.log("userid=   "+results.rows[0].postingid);
+     // console.log("password= "+results.rows[0].title);
+     // console.log("userType= "+results.rows[0].pathway);
+    }
+    res.render('studentHome', {
+      username: req.session.user.name,
+      userid: req.session.user.userid,
+      applications: results.rows
+    });
   });
+
 }
 
 // Display Employer Home Page
@@ -123,21 +160,24 @@ exports.validateLogin = function (req, res) {
         req.session.user = {
           userid: results.rows[0].userid,
           usertype: results.rows[0].usertype,
-          name: results.rows[0].firstname
+          name: results.rows[0].firstname + " " +results.rows[0].lastname 
         };
 
         res.locals.user = {
           userid: results.rows[0].userid,
           usertype: results.rows[0].usertype,
-          name: results.rows[0].firstname
+          name: results.rows[0].firstname + " "+results.rows[0].lastname
         };
         
-        if("Employer" === results.rows[0].usertype ) {
+        if("Admin" === results.rows[0].usertype ) {
+          res.redirect('/adminHome');
+        } else if("Employer" === results.rows[0].usertype ) {
           res.redirect('/employerHome');
         } else if ("Student" === results.rows[0].usertype ){
           if(postingid){
             res.render('application', {
               studentid: results.rows[0].userid,
+              username: results.rows[0].firstname + " "+results.rows[0].lastname,
               postingid: postingid
             });
           }else{
@@ -194,9 +234,26 @@ exports.createPost = function (req, res) {
   });
 }
 
+// Update Job status
+exports.updatePost = function (req, res) {
+  console.log(req.body);
+  const {
+    postingid,
+    review
+  } = req.body;
+
+  pool.query('UPDATE jobs.posting SET Status = $1 WHERE PostingId= $2', [review, postingid ], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    res.redirect('/adminHome');
+  });
+}
+
+
 // Display All Jobs Page
 exports.getJobs = function (req, res) {
-  pool.query('select p.postingid, p.title, p.pathway, p.responsibilities, p.category, p.skills, p.salary, p.dateposted, p.status from jobs.posting p', (error, results) => {
+  pool.query('select p.postingid, p.title, p.pathway, p.responsibilities, p.category, p.skills, p.salary, p.dateposted, p.status from jobs.posting p where p.status =$1',['Approve'], (error, results) => {
     if (error) {
       throw error;
     }
@@ -217,7 +274,8 @@ exports.getApplication = function (req, res) {
     const postingid = req.query.postingid;
     if(req.session.user) {
         res.render('application', {
-        userid: req.session.user.userid,
+        studentid: req.session.user.userid,
+        username: req.session.user.name,
         postingid: postingid
       });
     } else{
@@ -227,4 +285,23 @@ exports.getApplication = function (req, res) {
         message: ''
       });
     }
+}
+
+// Create Job Application
+exports.createApplication = function (req, res) {
+  const {
+    postingid,
+    studentid,
+    email,
+    phone
+  } = req.body;
+  
+  console.log(req.body);
+
+  pool.query('INSERT INTO jobs.application (StudentId, PostingId, Status) VALUES ($1,$2,$3)', [ studentid, postingid,'Received'], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    res.redirect('/studentHome');
+  });
 }

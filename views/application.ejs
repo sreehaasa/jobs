@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eduvantage</title>
-    <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="javascript" href="../../scripts/validations.js">
-    
-  </head>
+  <%- include('./partials/head') %>
+</head>
 
 <body>
+  <header>
+    <%- include('./partials/header') %>
+  </header>
 
   <style>
     .parallax {
@@ -87,56 +84,31 @@
     }
   </style>
 
-
-  <div class="header">
-    <a href="../../index.html" style="float: left; padding: 10px;"><img src="../../allianceLogo.png" alt="Alliance Logo" style="height: 75px; vertical-align: middle;"></a>
-    <div class="header-right">
-        <a   href="../../html/student/studentHome.html">Home</a>
-        <a  href="../../html/student/studentApplicationStatus.html">Application Status</a>
-        <a href="../../html/public/logIn.html">Available Jobs</a>
-        <a  href="../../index.html">Sign Out</a>
-          
-    </div>
-  </div>
 <div class="parallax">
   <div style="height: 50px;"></div>
 <div class="form-container">
     <h1>Apply Now</h1>
-    <form>
+    <form method="post" onsubmit="return validateForm()" action="/application">
       <input type="hidden" name="studentid" value=<%= studentid %> >
       <input type="hidden" name="postingid" value=<%= postingid %> >
       <label for="name">Full Name*</label>
-      <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-
+      <input type="text" id="name" name="name" value=<%= username %> disabled>
       <label for="email">Email Address*</label>
       <input type="email" id="email" name="email" placeholder="Enter your email" required>
-
       <label for="phone">Phone Number*</label>
       <input type="tel" id="phone" name="phone" placeholder="Enter your phone number (XXX-XXX-XXXX)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
-
-      <label for="date">Date*</label>
-      <input type="date" id="date" name="date" required>
-
-      <label for="resume">Upload Your Resume</label>
-      <input type="file" id="resume" name="resume" class="upload-btn" required>
-
-      <button type="submit" onclick="history.back()">Submit Application</button>
+      <label for="job">Job Applying For:</label>
+      <input type="text" id="job" name="job" value=<%= postingid %> disabled>
+    <!--  <label for="resume">Upload Your Resume</label>
+      <input type="file" id="resume" name="resume" class="upload-btn" required>-->
+      <button type="submit" class="btn">Submit Application</button>
     </form>
   </div>
 
   <button type="button" onclick="history.back()" style="background-color: #003366; color: #fff; border: none; cursor: pointer; font-weight: bold; width: 80%; padding: 10px; margin: 0 auto 15px auto; border-radius: 5px; font-size: 0.9em; display: block;">Go Back</button>
 </div>
 
-<div class="footer">
-  <address>
-      Contact Us at <a>eduvantage@gmail.com</a>.
-   </address>
-   <a href="#" aria-label="Follow us on Facebook" class="fa fa-facebook" target=”_blank”></a>
-   <a href="#" aria-label="Read our company profile on Linden" class="fa fa-linkedin" target=”_blank”></a>
-   <a href="#" aria-label="Follow us on Instagram"  class="fa fa-instagram" target=”_blank”> </a> </br>
-   <a style="color:white;"href="https://ga01000373.schoolwires.net/alliance" aria-label="View credits"> Visit Our School Page</a> </br>
-   <a style="color:white;"href="credits.html" aria-label="View credits"> Credits</a> </br>
-
-   
-</div>
+<footer>
+  <%- include('./partials/footer') %>
+</footer> 
 </body>
