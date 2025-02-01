@@ -9,45 +9,32 @@
   <header>
     <%- include('./partials/header') %>
   </header>
+  <div style="padding-left:20px">
 
-<div style="padding-left:20px">
-<div class="row">
-    <div class="column">
-      <div class="card5">
-        <h2> Student Application </h2>
-        <p>
-          <b> Name: </b>
-          <br> ------- <br>
-        </p>
-        <p>
-            <b> Email: </b>
-            <br> ------- <br>
-          </p>
-        <p>
-          <b> Phone Number </b>
-          <br> -----------
-        </p>
-        <p>
-          <b> Resume </b>
-          <br> -----------
-        </p>
-        <p>
-          <b>LinkedIn:</b>
-          <br> -----------
-        </p>
-         
-       
-      <button>
-        Approve
-        </button>
-        <button>
-           Deny
-            </button>
-      </div>
+    <div class="job-posting">
+      <% applications.forEach(function(application, index) { %>
+        <div class="job-card">
+          <div class="card5">
+            <h2>
+              <%= application.title %>
+            </h2>
+            <p>
+              <b> Email: </b>
+              <br>
+              <%= application.emailaddress %> <br>
+            </p>
+            <p>
+              <b> Type: </b>
+              <br>
+              <%= application.dateapplied %> <br>
+            </p>
+    
+          </div>
+        </div>
     </div>
-</div>
-</div>    
-<footer>
-  <%- include('./partials/footer') %>
-</footer>
+    <% }); %>
+  </div>
+  <footer>
+    <%- include('./partials/footer') %>
+  </footer>
 </body>

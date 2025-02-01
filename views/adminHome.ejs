@@ -1,127 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <%- include('./partials/head') %>
+    <%- include('./partials/head') %>
 </head>
-
 <body>
-  <header>
-    <%- include('./partials/header') %>
-  </header>
-  
+    <header>
+        <%- include('./partials/header') %>
+    </header>
    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-
+        
         .parallax {
             max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            background-image: url("../../aai.jpg");
-            margin-top: -100px;
-            min-height: 800px;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
         }
 
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .add-button {
-            background-color: #0095ff;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: white;
-        }
-
-        thead {
-            background-color: #f1f1f1;
-        }
-
-        th, td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-
-        .employee-info {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background-color: #f1f1f1;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .approved-btn, .pending-btn, .denied-btn {
-            padding: 0.25rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .approved-btn {
-            color: #0095ff;
-            background-color: #e6f4ff;
-        }
-
-        .pending-btn {
-            color: #0095ff;
-            background-color: #e6f4ff;
-        }
-
-        .denied-btn {
-            color: #ff4d4f;
-            background-color: #fff1f0;
-        }
-
-        .checkbox-cell {
-            width: 40px;
-        }
-
-        @media (max-width: 768px) {
-            .department-cell, .role-cell {
-                display: none;
-            }
-            
-            th, td {
-                padding: 0.75rem;
-            }
-        }
     </style>
 
     <div class="parallax">
         <div style="height: 90px;"></div>
         <div class="header" style="border-radius: 10px; overflow: hidden;">
-            <h1>Welcome, <%= username %>!</h1>
+            <h1 style="color:white;">Welcome, <%= username %>!</h1>
         </div>
         <input onkeyup="filterJobs()" type="text" id="searchbar" placeholder="Search for key words...">
         <script>
@@ -152,6 +49,7 @@
                     tbody tr:nth-child(odd) {
                         background-color: #80beff;
                     }
+
                     tbody tr:nth-child(even) {
                         background-color: #f5e97e;
                     }
@@ -170,123 +68,42 @@
                         <tr>
                             <td>
                                 <div class="employee-info">
-                                    <span><%= job.postingid  %></span>
+                                    <span>
+                                        <%= job.postingid %>
+                                    </span>
                                 </div>
                             </td>
-                            <td><%= job.title %></td>
-                            <td><%= job.salary %></td>
-                            <td><%= job.dateposted %></td>
+                            <td>
+                                <%= job.title %>
+                            </td>
+                            <td>
+                                <%= job.salary %>
+                            </td>
+                            <td>
+                                <%= job.dateposted %>
+                            </td>
                             <td class="status-cell">
-                                <% if(job.status == "Pending"){ %>
-                                    <form type="submit" method="post"  action="/adminPost">
-                                        <input type="hidden" name="postingid" value=<%= job.postingid %> >
-                                        <button class="add-button" name="review" value="Approve">Approve</button> 
-                                        <button class="add-button" name="review" value="Deny">Deny</button>
+                                <% if(job.status=="Pending" ){ %>
+                                    <form type="submit" method="post" action="/adminPost">
+                                        <input type="hidden" name="postingid" value=<%=job.postingid %> >
+                                        <button class="add-button" name="review" value="Approved">Approve</button>
+                                        <button class="add-button" name="review" value="Denied">Deny</button>
                                     </form>
-                                <% } else { %> 
-                                       <%= job.status %>
-                                <% } %>               
+                                    <% } else { %>
+                                        <%= job.status %>
+                                    <% } %>
                             </td>
                         </tr>
                         <% }); %>
-                        <% if(jobs.length < 1) { %>
-                            <tr>
-                                <td>
-                                    <div class="employee-info">
-                                        <span>No Postings Found. You can add a new Post using the link above.</span>
-                                    </div>
-                                </td>
-                            </tr>    
-                        <% } %>
-
-                    <!-- 
-                    <tr>
-                        <td>
-                            <div class="employee-info">
-                                <span>12345</span>
-                            </div>
-                        </td>
-                        <td>Intern</td>
-                        <td class="company-cell">Google</td>
-                        <td class="status-cell"><div class="action-buttons">
-                            <button class="adminBtn">
-                                Approve
-                              </button>
-                              <button class="adminBtn">
-                                Deny
-                              </button></td>
-                        </div></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="employee-info">
-                                <span>12346</span>
-                            </div>
-                        </td>
-                        <td>Intern</td>
-                        <td class="company-cell">Google</td>
-                        <td class="status-cell"><div class="action-buttons">
-                            <button class="adminBtn">
-                                Approve
-                              </button>
-                              <button class="adminBtn">
-                                Deny
-                              </button></td>
-                        </div></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="employee-info">
-                                <span>12345</span>
-                            </div>
-                        </td>
-                        <td>Intern</td>
-                        <td class="company-cell">Google</td>
-                        <td class="status-cell"><div class="action-buttons">
-                            <button class="adminBtn">
-                                Approve
-                              </button>
-                              <button class="adminBtn">
-                                Deny
-                              </button></td>
-                        </div></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="employee-info">
-                                <span>12345</span>
-                            </div>
-                        </td>
-                        <td>Intern</td>
-                        <td class="company-cell">Google</td>
-                        <td class="status-cell"><div class="action-buttons">
-                            <button class="adminBtn">
-                                Approve
-                              </button>
-                              <button class="adminBtn">
-                                Deny
-                              </button></td>
-                        </div></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="employee-info">
-                                <span>12345</span>
-                            </div>
-                        </td>
-                        <td>Intern</td>
-                        <td class="company-cell">Google</td>
-                        <td class="status-cell"><div class="action-buttons">
-                            <button class="adminBtn">
-                                Approve
-                              </button>
-                              <button class="adminBtn">
-                                Deny
-                              </button></td>
-                        </div></td>
-                    </tr>
-                    -->
-                    <!-- Add more rows as needed -->
+                            <% if(jobs.length < 1) { %>
+                                <tr>
+                                    <td>
+                                        <div class="employee-info">
+                                            <span>No Postings Found. You can add a new Post using the link above.</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <% } %>
                 </tbody>
             </table>
             <div style="height: 125px;"></div>
@@ -294,17 +111,17 @@
     </div>
     <style>
         .footer {
-       position: fixed;
-       left: 0;
-       bottom: 0;
-       width: 100%;
-    
-       color: white;
-       text-align: center;
-    }
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+
+            color: white;
+            text-align: center;
+        }
     </style>
-</div>
-<footer>
-    <%- include('./partials/footer') %>
-  </footer>  
+    </div>
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
 </body>

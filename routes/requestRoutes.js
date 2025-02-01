@@ -17,5 +17,6 @@ router.post('/adminPost', requestController.updatePost);
 router.get('/availableJobs', requestController.getJobs);
 router.get('/application', requestController.getApplication);
 router.post('/application', requestController.createApplication);
+router.get('/studentApplications', requestController.getStudentApplications);
 
 module.exports = router;

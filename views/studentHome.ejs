@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <%- include('./partials/head') %>
 </head>
-
 <body>
     <header>
         <%- include('./partials/header') %>
     </header>
-
-
+    
     <style>
         * {
             margin: 0;
@@ -123,52 +120,54 @@
     <div class="parallax">
         <div style="height: 90px;"></div>
         <div class="header" style="border-radius: 10px; overflow: hidden;">
-            <h1>Welcome, <%= username %>!</h1>
-            <a class="add-button" href="/availableJobs">Check out more careers!</a>
+            <h1 style="color:white;">Welcome, <%= username %>!</h1>
+            <a href="/availableJobs">Check out more careers!</a>
+            
         </div>
-        
+
         <div class="table-container">
             <table style="border-radius: 10px; overflow: hidden;">
                 <style>
                     tbody tr:nth-child(odd) {
                         background-color: #80beff;
                     }
+
                     tbody tr:nth-child(even) {
                         background-color: #f5e97e;
                     }
                 </style>
 
-<input onkeyup="filterJobs()" type="text" id="searchbar" placeholder="Search for key words...">
-<script>
-    function filterJobs() {
-        let input = document.getElementById('searchbar').value.toLowerCase();
-        let table = document.querySelector('table tbody');
-        let rows = table.getElementsByTagName('tr');
+                <input onkeyup="filterJobs()" type="text" id="searchbar" placeholder="Search for key words...">
+                <script>
+                    function filterJobs() {
+                        let input = document.getElementById('searchbar').value.toLowerCase();
+                        let table = document.querySelector('table tbody');
+                        let rows = table.getElementsByTagName('tr');
 
-        for (let i = 0; i < rows.length; i++) {
-            let cells = rows[i].getElementsByTagName('td');
-            let match = false;
+                        for (let i = 0; i < rows.length; i++) {
+                            let cells = rows[i].getElementsByTagName('td');
+                            let match = false;
 
-            for (let j = 0; j < cells.length; j++) {
-                if (cells[j].innerText.toLowerCase().includes(input)) {
-                    match = true;
-                    break;
-                }
-            }
+                            for (let j = 0; j < cells.length; j++) {
+                                if (cells[j].innerText.toLowerCase().includes(input)) {
+                                    match = true;
+                                    break;
+                                }
+                            }
 
-            rows[i].style.display = match ? '' : 'none';
-        }
-    }
-</script>
+                            rows[i].style.display = match ? '' : 'none';
+                        }
+                    }
+                </script>
 
                 <thead>
                     <tr>
                         <th> Application ID</th>
                         <th> Job ID</th>
                         <th> Title</th>
-                        <th  class="company-cell">Company</th>
+                        <th class="company-cell">Company</th>
                         <th> Date Applied </th>
-                        <th  class="status-cell">Status</th>
+                        <th class="status-cell">Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -177,108 +176,46 @@
                         <tr>
                             <td>
                                 <div class="employee-info">
-                                    <span><%= application.applicationid  %></span>
+                                    <span>
+                                        <%= application.applicationid %>
+                                    </span>
                                 </div>
                             </td>
-                            <td><%= application.postingid %></td>
-                            <td><%= application.title %></td>
-                            <td><%= application.username %></td>
-                            <td><%= application.dateapplied %></td>
+                            <td>
+                                <%= application.postingid %>
+                            </td>
+                            <td>
+                                <%= application.title %>
+                            </td>
+                            <td>
+                                <%= application.username %>
+                            </td>
+                            <td>
+                                <%= application.dateapplied %>
+                            </td>
                             <td class="status-cell">
-                                <% if(application.status == "Approved"){ %>
+                                <% if(application.status=="Approved" ){ %>
                                     <button class="approved-btn">Live ✅</button>
-                                <% } %>
-                                <% if(application.status == "Denied"){ %>
-                                    <button class="denied-btn">Down ❌</button>
-                                <% } %>
-                                <% if(application.status == "Received"){ %>
-                                  <button class="pending-btn">Pending 🤔</button>
-                                <% } %>                    
+                                    <% } %>
+                                        <% if(application.status=="Denied" ){ %>
+                                            <button class="denied-btn">Down ❌</button>
+                                            <% } %>
+                                                <% if(application.status=="Received" ){ %>
+                                                    <button class="pending-btn">Pending 🤔</button>
+                                                    <% } %>
                             </td>
                         </tr>
                         <% }); %>
-                        <% if(applications.length < 1) { %>
-                            <tr>
-                                <td>
-                                    <div class="employee-info">
-                                        <span>No Applications Found. You can apply for jobs using the link above.</span>
-                                    </div>
-                                </td>
-                            </tr>    
-                        <% } %>
-
-
-                   <!-- <tr>
-                        <td>
-                            <div class="employee-info">
-                                <span>12346</span>
-                            </div>
-                        </td>
-                        <td>Intern</td>
-                        <td class="company-cell">Google</td>
-                        <td class="status-cell"><div class="action-buttons">
-                            <button class="approved-btn">✅</button>
-                            <button class="pending-btn">🤔</button>
-                            <button class="denied-btn">❌</button>
-                        </div></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="employee-info">
-                                <span>12345</span>
-                            </div>
-                        </td>
-                        <td>Intern</td>
-                        <td class="company-cell">Google</td>
-                        <td class="status-cell"><div class="action-buttons">
-                            <button class="approved-btn">✅</button>
-                            <button class="pending-btn">🤔</button>
-                            <button class="denied-btn">❌</button>
-                        </div></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="employee-info">
-                                <span>12345</span>
-                            </div>
-                        </td>
-                        <td>Intern</td>
-                        <td class="company-cell">Google</td>
-                        <td class="status-cell"><div class="action-buttons">
-                            <button class="approved-btn">✅</button>
-                            <button class="pending-btn">🤔</button>
-                            <button class="denied-btn">❌</button>
-                        </div></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="employee-info">
-                                <span>12345</span>
-                            </div>
-                        </td>
-                        <td>Intern</td>
-                        <td class="company-cell">Google</td>
-                        <td class="status-cell"><div class="action-buttons">
-                            <button class="approved-btn">✅</button>
-                            <button class="pending-btn">🤔</button>
-                            <button class="denied-btn">❌</button>
-                        </div></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="employee-info">
-                                <span>12345</span>
-                            </div>
-                        </td>
-                        <td>Intern</td>
-                        <td class="company-cell">Google</td>
-                        <td class="status-cell"><div class="action-buttons">
-                            <button class="approved-btn">✅</button>
-                            <button class="pending-btn">🤔</button>
-                            <button class="denied-btn">❌</button>
-                        </div></td>
-                    </tr> -->
-                    <!-- Add more rows as needed -->
+                            <% if(applications.length < 1) { %>
+                                <tr>
+                                    <td>
+                                        <div class="employee-info">
+                                            <span>No Applications Found. You can apply for jobs using the link
+                                                above.</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <% } %>
                 </tbody>
             </table>
             <div style="height: 125px;"></div>
@@ -286,17 +223,16 @@
     </div>
     <style>
         .footer {
-       position: fixed;
-       left: 0;
-       bottom: 0;
-       width: 100%;
-    
-       color: white;
-       text-align: center;
-    }
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            text-align: center;
+        }
     </style>
-</div>
-<footer>
-    <%- include('./partials/footer') %>
-</footer>
+    </div>
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
 </body>

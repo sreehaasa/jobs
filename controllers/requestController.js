@@ -136,6 +136,22 @@ exports.getSignin = function (req, res) {
   });
 }
 
+// Display Student Applications Page
+exports.getStudentApplications = function (req, res) {
+  const employerid = req.query.employerid;
+  console.log(employerid);
+  pool.query('SELECT p.postingid, p.title, a.applicationid, a.dateapplied, s.emailaddress FROM jobs.application a,jobs.posting p,jobs.user s,jobs.user u WHERE a.postingid = p.postingid and a.studentid = s.userid AND p.employerid = u.userid and u.userid = $1', [employerid], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    console.log(results.rows);
+    res.render('studentApplications', {
+      applications: results.rows
+    });
+  });
+}
+
+
 // Verify Log in
 exports.validateLogin = function (req, res) {
 
@@ -247,7 +263,7 @@ exports.updatePost = function (req, res) {
 
 // Display All Jobs Page
 exports.getJobs = function (req, res) {
-  pool.query('select p.postingid, p.title, p.pathway, p.responsibilities, p.category, p.skills, p.salary, p.dateposted, p.status from jobs.posting p where p.status =$1',['Approve'], (error, results) => {
+  pool.query('select p.postingid, p.title, p.pathway, p.responsibilities, p.category, p.skills, p.salary, p.dateposted, p.status from jobs.posting p where p.status =$1',['Approved'], (error, results) => {
     if (error) {
       throw error;
     }
