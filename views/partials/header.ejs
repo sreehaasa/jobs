@@ -5,22 +5,22 @@
      <div class="header-right">
        <!-- Stduent Navigation -->
         <% if(user.usertype === "Student" ) { %>
-            <a class="active" href="/studentHome">Home</a>
+            <a href="/studentHome">Home</a>
             <a href="/availableJobs">Careers</a>
         <% } %>
          <!-- Employer Navigation -->
         <% if(user.usertype === "Employer" ) { %>
-            <a class="active" href="/employerHome">Home</a>
+            <a href="/employerHome">Home</a>
             <a href="/posts?employerid=<%= employerid %>">Post New Job</a>
             <a href="/studentApplications?employerid=<%= employerid %>">View Applications</a>
         <% } %>
         <!-- Admin Navigation -->
         <% if(user.usertype === "Admin" ) { %>
-            <a class="active" href="/adminHome">Home</a>
+            <a href="/adminHome">Home</a>
         <% } %>
         <!-- Login/logout-->
         <% if(user.usertype === "User" ) { %>
-            <a class="active" href="/">Home</a>
+            <a href="/">Home</a>
             <a href="/availableJobs">Careers</a>
             <a href="/signin">Log In</a>
         <% } else { %>
