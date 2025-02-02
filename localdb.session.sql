@@ -1,13 +1,31 @@
 select p.postingid,
-       p.title,
-       a.applicationid,
-       a.dateapplied,
-       s.emailaddress
- from jobs.application a,
-      jobs.posting p,
-      jobs.user s,
-      jobs.user u
-where a.postingid = p.postingid 
-  and a.studentid = s.userid
-  and p.employerid = u.userid
-  and u.userid = $1
+ p.title,
+ p.pathway,
+ p.responsibilities,
+ p.category,
+ p.skills,
+ p.salary,
+ p.dateposted,
+ p.status,
+ e.username
+ from jobs.posting p,
+ jobs.user e
+ where p.employerid = e.userid
+ and p.status = 'Approved'
+ 
+
+/*SELECT p.postingid,
+  p.title,
+  a.applicationid,
+  a.status,
+  a.dateapplied,
+  e.username
+FROM jobs.application a,
+  jobs.posting p,
+  jobs.user s,
+  jobs.user e
+WHERE a.postingid = p.postingid
+  AND p.employerid = e.userid
+  AND a.studentid = s.userid
+  AND s.userid = 2
+  */

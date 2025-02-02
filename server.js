@@ -17,6 +17,19 @@ app.use(session({
     saveUninitialized: true
   }));
 
+app.use(function(req, res, next){
+  if(!req.session.user){
+    res.locals.user = {
+      userid: '',
+      usertype: 'User',
+      name: '' 
+    }
+  }else{
+    res.locals.user = req.session.user;
+  }
+  next();
+});
+
 //app.use(bodyParser.json());
 app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
