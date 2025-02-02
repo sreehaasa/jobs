@@ -30,5 +30,6 @@ router.get('/availableJobs',    requestController.getJobs);
 router.get('/application',      requestController.getApplication);
 router.post('/application',     upload.single('resume'),requestController.createApplication);
 router.get('/studentApplications', requestController.getStudentApplications);
+router.get('/credits', requestController.getCredits);
 
 module.exports = router;

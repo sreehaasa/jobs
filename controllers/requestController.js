@@ -123,6 +123,10 @@ exports.getSignup = function (req, res) {
     usertype: req.query.utype
   });
 }
+// Display Credits Page
+exports.getCredits = function (req, res) {
+  res.render('credits');
+}
 
 
 // Create User Account (Employer, Student, Admin)
