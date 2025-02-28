@@ -11,8 +11,7 @@ const Pool = require('pg').Pool;
 const {Connector} = require('@google-cloud/cloud-sql-connector');
 const connector = new Connector();
 const clientOpts =  connector.getOptions({
-     host: '34.29.72.222', 
-     port: 5432,
+     instanceConnectionName:third-fire-452323-b0:us-central1:job-postings-database,
      ipType: 'PRIVATE',
 });
 const pool = new Pool({
