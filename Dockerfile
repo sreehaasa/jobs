@@ -1,8 +1,8 @@
 FROM node:18-slim
-WORKDIR /
-COPY package*.json /
-RUN npm cache clean --force
+RUN mkdir -p /app
+WORKDIR /app
+COPY package*.json /app/
 RUN npm install
-COPY . /
+COPY . /app/
 EXPOSE 3000
 CMD [ "node", "server.js"]
