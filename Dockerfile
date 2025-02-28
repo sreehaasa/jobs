@@ -1,5 +1,7 @@
 FROM node:18-slim
-RUN npm install 
-COPY . .
+WORKDIR /
+COPY package*.json /
+RUN npm install
+COPY . /.
 EXPOSE 3000
 CMD [ "node", "server.js"]
