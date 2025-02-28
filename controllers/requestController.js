@@ -7,15 +7,13 @@
  // database: 'postgres',
 //  password: '4a$BzM2eQ#pK&Iurk',
  // port: 5432
-//});
-
-//import pg from 'pg';
 const Pool = require('pg').Pool;
 const {Connector} = require('@google-cloud/cloud-sql-connector');
 const connector = new Connector();
 const clientOpts =  connector.getOptions({
-  instanceConnectionName: 'third-fire-452323-b0:us-central1:job-postings-database',
-  ipType: 'PRIVATE',
+     host: '34.29.72.222', 
+     port: 5432,
+     ipType: 'PRIVATE',
 });
 const pool = new Pool({
   ...clientOpts,
@@ -24,14 +22,8 @@ const pool = new Pool({
   database: 'postgres',
   max: 5,
 });
-//const {rows} = await pool.query('SELECT NOW()');
-//console.table(rows); // prints returned time value from server
-
 //await pool.end();
 //connector.close();
-
-//
-
 
 // Display Home Page
 exports.getHome = function (req, res) {
