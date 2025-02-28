@@ -7,22 +7,22 @@
  // database: 'postgres',
 //  password: '4a$BzM2eQ#pK&Iurk',
  // port: 5432
-const Pool = require('pg').Pool;
+const pg = require('pg');
 const {Connector} = require('@google-cloud/cloud-sql-connector');
 const connector = new Connector();
 const clientOpts =  connector.getOptions({
      instanceConnectionName:'third-fire-452323-b0:us-central1:job-postings-database',
      ipType: 'PRIVATE',
 });
+const {Pool} = pg;
 const pool = new Pool({
   ...clientOpts,
+  host: '/cloudsql/third-fire-452323-b0:us-central1:job-postings-database',
   user: 'postgres',
   password: '4a$BzM2eQ#pK&Iurk',
   database: 'postgres',
   max: 5,
 });
-//await pool.end();
-//connector.close();
 
 // Display Home Page
 exports.getHome = function (req, res) {
