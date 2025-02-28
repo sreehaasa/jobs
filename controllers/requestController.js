@@ -9,9 +9,9 @@
  // port: 5432
 //});
 
-import pg from 'pg';
-import {Connector} from '@google-cloud/cloud-sql-connector';
-const {Pool} = pg;
+//import pg from 'pg';
+const Pool = require('pg').Pool;
+const {Connector} = require('@google-cloud/cloud-sql-connector');
 const connector = new Connector();
 const clientOpts = await connector.getOptions({
   instanceConnectionName: 'third-fire-452323-b0:us-central1:job-postings-database',
