@@ -1,13 +1,37 @@
 //const db = require('../config/database');
 
-const Pool = require('pg').Pool;
-const pool = new Pool({
-  user: 'postgres',
-  host: '34.29.72.222',
-  database: 'postgres',
-  password: '4a$BzM2eQ#pK&Iurk',
-  port: 5432
+//const Pool = require('pg').Pool;
+//const pool = new Pool({
+ // user: 'postgres',
+ // host: '34.29.72.222',
+ // database: 'postgres',
+//  password: '4a$BzM2eQ#pK&Iurk',
+ // port: 5432
+//});
+
+import pg from 'pg';
+import {Connector} from '@google-cloud/cloud-sql-connector';
+const {Pool} = pg;
+const connector = new Connector();
+const clientOpts = await connector.getOptions({
+  instanceConnectionName: 'third-fire-452323-b0:us-central1:job-postings-database',
+  ipType: 'PUBLIC',
 });
+const pool = new Pool({
+  ...clientOpts,
+  user: 'postgres',
+  password: '4a$BzM2eQ#pK&Iurk',
+  database: 'postgres',
+  max: 5,
+});
+//const {rows} = await pool.query('SELECT NOW()');
+//console.table(rows); // prints returned time value from server
+
+//await pool.end();
+//connector.close();
+
+//
+
 
 // Display Home Page
 exports.getHome = function (req, res) {
