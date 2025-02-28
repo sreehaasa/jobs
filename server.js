@@ -7,7 +7,7 @@ const requestRoutes = require("./routes/requestRoutes");
 
 // Use EJS as templating engine for views
 app.set('view engine', 'ejs');
-app.set('views', __dirname + '../views');
+app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
 
 //set up session to carry user information
