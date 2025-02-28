@@ -1,5 +1,5 @@
 FROM node:18-slim
-WORKDIR /
+WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . ./
