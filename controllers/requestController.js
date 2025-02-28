@@ -15,7 +15,7 @@ const {Connector} = require('@google-cloud/cloud-sql-connector');
 const connector = new Connector();
 const clientOpts =  connector.getOptions({
   instanceConnectionName: 'third-fire-452323-b0:us-central1:job-postings-database',
-  ipType: 'PUBLIC',
+  ipType: 'PRIVATE',
 });
 const pool = new Pool({
   ...clientOpts,
