@@ -1,0 +1,78 @@
+CREATE SCHEMA jobs;
+
+CREATE SEQUENCE jobs.user_pk_seq
+	INCREMENT BY 1
+	MINVALUE 0
+	MAXVALUE 2147483647
+	START WITH 1
+	CACHE 1
+	NO CYCLE
+	OWNED BY NONE;
+
+CREATE TABLE jobs.user (
+	UserId integer NOT NULL DEFAULT nextval('jobs.user_pk_seq'::regclass),
+	FirstName varchar(50) NOT NULL,
+	LastName varchar(50) NOT NULL,
+	EmailAddress text NOT NULL,
+	UserName varchar(50) NOT NULL,
+	Password varchar(15) NOT NULL,
+        Pin smallint Not Null,
+	UserType varchar(20) NOT NULL,
+        CONSTRAINT unique_email UNIQUE (EmailAddress),
+	CONSTRAINT pk_user_id PRIMARY KEY (UserId)
+);
+
+CREATE SEQUENCE jobs.posting_pk_seq
+	INCREMENT BY 1
+	MINVALUE 0
+	MAXVALUE 2147483647
+	START WITH 1
+	CACHE 1
+	NO CYCLE
+	OWNED BY NONE;
+
+CREATE TABLE jobs.posting (
+	PostingId integer NOT NULL DEFAULT nextval('jobs.posting_pk_seq'::regclass),
+	Title varchar(50) NOT NULL,
+	Pathway varchar(50) NOT NULL,
+	Responsibilities text NOT NULL,
+	Category varchar(20)NOT NULL,
+	Skills text NOT NULL,
+	Salary text,
+	Status varchar(20) NOT NULL,
+	DatePosted timestamp NOT NULL DEFAULT current_timestamp,
+	EmployerId integer NOT NULL, 
+        CONSTRAINT pk_posting_id PRIMARY KEY (PostingId)
+);
+
+
+ALTER TABLE jobs.posting ADD CONSTRAINT user_fk FOREIGN KEY (EmployerId)
+REFERENCES jobs.user(UserId) MATCH FULL
+ON DELETE CASCADE ON UPDATE NO ACTION;
+
+CREATE SEQUENCE jobs.application_pk_seq
+	INCREMENT BY 1
+	MINVALUE 0
+	MAXVALUE 2147483647
+	START WITH 1
+	CACHE 1
+	NO CYCLE
+	OWNED BY NONE;
+
+CREATE TABLE jobs.application (
+	ApplicationId integer NOT NULL DEFAULT nextval('jobs.application_pk_seq'::regclass),
+	StudentId integer NOT NULL,
+        PostingId integer NOT NULL,
+	Status varchar(20) NOT NULL,
+	DateApplied timestamp NOT NULL DEFAULT current_timestamp,
+	CONSTRAINT pk_application_id PRIMARY KEY (ApplicationId)
+);
+
+ALTER TABLE jobs.application ADD CONSTRAINT student_fk FOREIGN KEY (StudentId)
+REFERENCES jobs.user(UserId) MATCH FULL
+ON DELETE CASCADE ON UPDATE NO ACTION;
+
+ALTER TABLE jobs.application ADD CONSTRAINT posting_fk FOREIGN KEY (PostingId)
+REFERENCES jobs.posting(PostingId) MATCH FULL
+ON DELETE CASCADE ON UPDATE NO ACTION;
+
