@@ -162,7 +162,7 @@ exports.createAccount = function (req, res) {
     if (error) {
       throw error;
     }
-    res.render('login', {
+    res.render('logIn', {
       title: 'My App',
       message: '',
       postingid:''
@@ -173,7 +173,7 @@ exports.createAccount = function (req, res) {
 
 // Display Sign In Page
 exports.getSignin = function (req, res) {  
-  res.render('login', {
+  res.render('logIn', {
      message: '',
      postingid:''
   });
@@ -252,7 +252,7 @@ exports.validateLogin = function (req, res) {
           });
         }
       }else{
-        res.render('login', {
+        res.render('logIn', {
           message: "Invalid Login. Please try again!",
           postingid:''
         });
@@ -346,7 +346,7 @@ exports.getApplication = function (req, res) {
         postingid: postingid
       });
   } else{
-      res.render('login', {
+      res.render('logIn', {
         postingid: postingid,
         studentid:'',
         message: ''
